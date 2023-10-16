@@ -46,10 +46,15 @@
 	<table class="table table-striped">
   		<thead class="table-dark">
     		<tr>
-      			<th scope="col">#</th>
-      			<th scope="col">First</th>
-      			<th scope="col">Last</th>
-      			<th scope="col">Handle</th>
+      			<th scope="col">선택</th>
+      			<th scope="col">사원번호</th>
+      			<th scope="col">성명</th>
+      			<th scope="col">주민번호</th>
+      			<th scope="col">부서명</th>
+      			<th scope="col">직위</th>
+      			<th scope="col">입사일</th>
+      			<th scope="col">퇴사일</th>
+      			<th scope="col">Email</th>
     		</tr>
   		</thead>
   		<tbody>
@@ -60,6 +65,11 @@
       			<td>Mark</td>
       			<td>Otto</td>
       			<td>@mdo</td>
+      			<td>Mark</td>
+      			<td>Otto</td>
+      			<td>@mdo</td>
+      			<td>Mark</td>
+      			<td>Otto</td>
     		</tr>
     		<tr>
       			<td>
@@ -68,14 +78,25 @@
       			<td>Jacob</td>
       			<td>Thornton</td>
       			<td>@fat</td>
+      			<td>Mark</td>
+      			<td>Otto</td>
+      			<td>@mdo</td>
+      			<td>Mark</td>
+      			<td>Otto</td>      			
     		</tr>
     		<tr>
       			<td>
             		<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
             	</td>
-      			<td colspan="2">Larry the Bird</td>
+      			<td>Larry the Bird</td>
       			<td>@twitter</td>
-    		</tr>
+      			<td>Mark</td>
+      			<td>Otto</td>
+      			<td>@mdo</td>
+      			<td>Mark</td>
+      			<td>Otto</td>
+      			<td>Otto</td>
+       		</tr>
   		</tbody>
 	</table>
 	
