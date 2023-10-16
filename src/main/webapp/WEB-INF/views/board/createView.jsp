@@ -42,6 +42,71 @@
   		</div>
 	</nav>
 	
+	<table class="table">
+  		<thead class="table-dark">
+    		<tr>
+      			<th scope="col">#</th>
+      			<th scope="col">First</th>
+      			<th scope="col">Last</th>
+      			<th scope="col">Handle</th>
+    		</tr>
+  		</thead>
+  		<tbody>
+    		<tr>
+      			<th scope="row">
+      				<div>
+  						<input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
+					</div>
+				</th>
+      			<td>Mark</td>
+      			<td>Otto</td>
+      			<td>@mdo</td>
+    		</tr>
+    		<tr>
+      			<th scope="row">
+      				<div>
+  						<input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
+					</div>
+      			</th>
+      			<td>Jacob</td>
+      			<td>Thornton</td>
+      			<td>@fat</td>
+    		</tr>
+    		<tr>
+      			<th scope="row">
+      				<div>
+  						<input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
+					</div>
+      			</th>
+      			<td colspan="2">Larry the Bird</td>
+      			<td>@twitter</td>
+    		</tr>
+  		</tbody>
+	</table>
+	
+	<nav aria-label="Page navigation example">
+  		<ul class="pagination">
+    		<li class="page-item">
+      			<a class="page-link" href="#" aria-label="Previous">
+        			<span aria-hidden="true">&laquo;</span>
+     			</a>
+    		</li>
+    		<li class="page-item"><a class="page-link" href="#">1</a></li>
+    		<li class="page-item"><a class="page-link" href="#">2</a></li>
+    		<li class="page-item"><a class="page-link" href="#">3</a></li>
+    		<li class="page-item">
+      			<a class="page-link" href="#" aria-label="Next">
+        			<span aria-hidden="true">&raquo;</span>
+      			</a>
+    		</li>
+  		</ul>
+	</nav>
+	
+	<div class="d-grid gap-2 d-md-block">
+  		<button class="btn btn-secondary" type="button">추가</button>
+  		<button class="btn btn-secondary" type="button">삭제</button>
+	</div>
+	
 	
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
