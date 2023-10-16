@@ -119,8 +119,8 @@
 	</nav>
 	
 	<div class="d-grid gap-2 d-md-block">
-  		<button class="btn btn-secondary" type="button">추가</button>
-  		<button class="btn btn-secondary" type="button">삭제</button>
+  		<button class="btn btn-dark" type="button">추가</button>
+  		<button class="btn btn-dark" type="button">삭제</button>
 	</div>
 	
 	
