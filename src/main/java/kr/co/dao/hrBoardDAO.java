@@ -4,7 +4,7 @@ import kr.co.vo.Employees;
 
 public interface hrBoardDAO {
 	
-	// 사원 추가
-	public void addEmployee(Employees employees) throws Exception;
+	// 사원 등록
+	public void create(Employees employees) throws Exception;
 
 }

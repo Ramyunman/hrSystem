@@ -12,7 +12,7 @@ import kr.co.service.hrBoardService;
 import kr.co.vo.Employees;
 
 @Controller
-@RequestMapping("/vit/hrBoard/*")
+@RequestMapping("/board/*")
 public class HrBoardController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HrBoardController.class);
@@ -20,18 +20,18 @@ public class HrBoardController {
 	@Inject
 	hrBoardService service;
 	
-	// 사원 추가 작성 화면
-	@RequestMapping(value = "/vit/hrBoard/addEmployeeView", method = RequestMethod.GET)
-	public void addEmployeeView() throws Exception{
-		logger.info("addEmployeeView");
+	// 사원 등록 작성 화면
+	@RequestMapping(value = "/board/createView", method = RequestMethod.GET)
+	public void createView() throws Exception{
+		logger.info("createView");
 	}
 	
-	// 사원 추가
-	@RequestMapping(value = "/vit/hrBoard/addEmployee", method = RequestMethod.POST)
-	public String addEmployee(Employees employees) throws Exception {
-		logger.info("addEmployee");
-		service.addEmployee(employees);
-		return "redirect:/vit";
+	// 사원 등록
+	@RequestMapping(value = "/board/create", method = RequestMethod.POST)
+	public String create(Employees employees) throws Exception {
+		logger.info("create");
+		service.create(employees);
+		return "redirect:/";
 	}
 	
 

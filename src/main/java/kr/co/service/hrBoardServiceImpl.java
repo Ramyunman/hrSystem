@@ -15,8 +15,8 @@ public class hrBoardServiceImpl implements hrBoardService {
 	
 	// 사원 추가
 	@Override
-	public void addEmployee(Employees employees) throws Exception {
-		dao.addEmployee(employees);
+	public void create(Employees employees) throws Exception {
+		dao.create(employees);
 	}
 
 }

@@ -13,9 +13,9 @@ public class hrBoardDAOImpl implements hrBoardDAO {
 	@Inject
 	private SqlSession sqlSession;
 	
-	// 사원 추가
+	// 사원 등록
 	@Override
-	public void addEmployee(Employees employees) throws Exception {
+	public void create(Employees employees) throws Exception {
 		sqlSession.insert("boardMapper.insert", employees);
 	}
 
