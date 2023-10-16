@@ -54,31 +54,25 @@
   		</thead>
   		<tbody>
     		<tr>
-      			<th scope="row">
-      				<div>
-  						<input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
-					</div>
-				</th>
+      			<td>
+            		<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+            	</td>
       			<td>Mark</td>
       			<td>Otto</td>
       			<td>@mdo</td>
     		</tr>
     		<tr>
-      			<th scope="row">
-      				<div>
-  						<input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
-					</div>
-      			</th>
+      			<td>
+            		<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+            	</td>
       			<td>Jacob</td>
       			<td>Thornton</td>
       			<td>@fat</td>
     		</tr>
     		<tr>
-      			<th scope="row">
-      				<div>
-  						<input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
-					</div>
-      			</th>
+      			<td>
+            		<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+            	</td>
       			<td colspan="2">Larry the Bird</td>
       			<td>@twitter</td>
     		</tr>
