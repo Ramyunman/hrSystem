@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import kr.co.vo.Employees;
 
 @Repository
-public class hrBoardDAOImpl implements hrBoardDAO {
+public class BoardDAOImpl implements BoardDAO {
 	
 	@Inject
 	private SqlSession sqlSession;

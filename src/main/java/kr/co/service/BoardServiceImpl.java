@@ -5,13 +5,13 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import kr.co.vo.Employees;
-import kr.co.dao.hrBoardDAO;
+import kr.co.dao.BoardDAO;
 
 @Service
-public class hrBoardServiceImpl implements hrBoardService {
+public class BoardServiceImpl implements BoardService {
 	
 	@Inject
-	private hrBoardDAO dao;
+	private BoardDAO dao;
 	
 	// 사원 추가
 	@Override

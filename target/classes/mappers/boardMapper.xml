@@ -6,7 +6,8 @@
 
 	<!-- 게시판 글 작성 -->
 	<insert id="insert">
-		INSERT INTO employees ( name
+		INSERT INTO employees ( employee_id
+								, name
 								, email
 								, phone_number
 								, hire_date
@@ -16,7 +17,8 @@
 								, reg_no
 								, bank_id
 								, bank_account)
-    		VALUES (		    #{name}
+    		VALUES (		    employees_seq.nextval
+    							, #{name}
     							, #{email}
     							, #{phone_number}
     							, #{hire_date}
@@ -25,7 +27,8 @@
     							, #{address}
     							, #{reg_no}
     							, #{bank_id}
-    							, #{bank_account)
+    							, #{bank_account}
+    				)
 	</insert>
 
 </mapper>
