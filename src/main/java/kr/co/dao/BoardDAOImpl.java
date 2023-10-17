@@ -1,5 +1,7 @@
 package kr.co.dao;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -13,10 +15,15 @@ public class BoardDAOImpl implements BoardDAO {
 	@Inject
 	private SqlSession sqlSession;
 	
-	// 사원 등록
+	// 직원 등록
 	@Override
 	public void create(Employees employees) throws Exception {
 		sqlSession.insert("boardMapper.insert", employees);
+	}
+	
+	// 직원 목록 조회
+	public List<Employees> list() throws Exception {
+		return sqlSession.selectList("boardMapper.list");
 	}
 
 }

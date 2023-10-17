@@ -30,5 +30,17 @@
     							, #{bank_account}
     				)
 	</insert>
+	
+	<select id="list" resultType="kr.co.vo.Employees">
+		SELECT		EMPLOYEE_ID
+			  		, NAME
+					, REG_NO
+					, DEPARTMENT_ID
+					, HIRE_DATE
+					, LEAVE_DATE
+					, EMAIL
+		FROM	employees
+		ORDER BY EMPLOYEE_ID DESC
+	</select>
 
 </mapper>

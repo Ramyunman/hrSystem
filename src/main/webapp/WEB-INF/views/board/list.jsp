@@ -68,15 +68,12 @@
             		</td>
       				<td><c:out value="${list.employee_id}"/></td>
       				<td><c:out value="${list.name}"/></td>
-      				<td><c:out value="${list.email}"/></td>
-      				<td><c:out value="${list.phone_number}"/></td>
-      				<td><c:out value="${list.hire_date}"/></td>
-      				<td><c:out value="${list.leave_date}"/></td>
-      				<td><c:out value="${list.department_id}"/></td>
-      				<td><c:out value="${list.address}"/></td>
       				<td><c:out value="${list.reg_no}"/></td>
-      				<td><c:out value="${list.bank_id}"/></td>
-      				<td><c:out value="${list.bank_account}"/></td>
+      				<td><c:out value="${list.department_id}"/></td>
+      				<td>직위</td>
+      				<td><fmt:formatDate value="${list.hire_date}" pattern="yyyy-MM-dd"/></td>
+      				<td><fmt:formatDate value="${list.leave_date}" pattern="yyyy-MM-dd"/></td>
+      				<td><c:out value="${list.email}"/></td>
     			</tr>
     		</c:forEach>
   		</tbody>
