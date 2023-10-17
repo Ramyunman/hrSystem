@@ -6,8 +6,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  	
 <title>사원 등록 창</title>
 </head>
 <body>
@@ -19,61 +19,64 @@
   		</li>
   	</ul>
   	
-  	<form action="/board/create" method="post">
+  	<form>
   		<div class="form-row">
     		<div class="form-group col-md-6">
       			<label for="inputName">성명</label>
-      			<input type="text" class="form-control" id="inputEmail4" name="name" placeholder="성명">
+      			<input type="text" class="form-control" id="inputName" placeholder="성명">
     		</div>
     		<div class="form-group col-md-6">
       			<label for="inputJumin">주민번호</label>
-      			<input type="text" class="form-control" id="inputPassword4" name="reg_no" placeholder="주민번호">
+      			<input type="text" class="form-control" id="inputJumin" placeholder="주민번호">
     		</div>
   		</div>
   		<div class="form-group">
     		<label for="exampleFormControlTextarea1">주소</label>
-    		<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="address" placeholder="주소"></textarea>
+    		<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="주소"></textarea>
   		</div>
   		<div class="form-row">
-    		<div class="form-group col-md-4">
+  			<div class="form-group col-md-4">
       			<label for="inputHire">입사일</label>
-      			<input type="text" class="form-control" id="inputHire" name="hire_date">
-    		</div>
+      			<input type="text" class="form-control" id="inputHire">
+    		</div> 
     		<div class="form-group col-md-4">
       			<label for="inputDepartment">부서명</label>
-      			<select id="inputDepatment" class="form-control" name="department_id">
+      			<select id="inputDepartment" class="form-control">
         			<option selected>Choose...</option>
         			<option>...</option>
       			</select>
     		</div>
     		<div class="form-group col-md-4">
       			<label for="inputRetire">퇴사일</label>
-      			<input type="text" class="form-control" id="inputRetire" name="leave_date">
+      			<input type="text" class="form-control" id="inputRetire">
     		</div>
   		</div>
   		<div class="form-row">
     		<div class="form-group col-md-4">
       			<label for="inputBank">급여은행</label>
-      			<select id="inputBank" class="form-control" name="bank_id">
+      			<select id="inputBank" class="form-control">
         			<option selected>Choose...</option>
         			<option>...</option>
       			</select>
     		</div>
     		<div class="form-group col-md-8">
       			<label for="inputMoney">급여계좌</label>
-      			<input type="text" class="form-control" id="inputMoney" name="bank_account">
+      			<input type="text" class="form-control" id="inputMoney">
     		</div>
   		</div>
+  		
   		<div class="form-group">
-    		<label for="exampleFormControlInput1">전화번호</label>
-    		<input type="text" class="form-control" id="exampleFormControlInput1" name="phone_number" placeholder="전화번호">
-  		</div>
-  		<div class="form-group">
-    		<label for="exampleFormControlInput1">이메일</label>
-    		<input type="email" class="form-control" id="exampleFormControlInput1" name="email" placeholder="이메일">
+    		<label for="exampleFormPhone">전화번호</label>
+    		<input type="text" class="form-control" id="exampleFormPhone" placeholder="전화번호">
   		</div>
   		
-  		<button type="submit" class="btn btn-dark">저장</button>
+  		 <div class="form-group">
+    		<label for="exampleFormEmail">이메일</label>
+    		<input type="email" class="form-control" id="exampleFormEmail" placeholder="이메일">
+  		</div>
+  		
+  		
+  		<button type="submit" class="btn btn-dark addEmployee">저장</button>
 	</form>
 </div>  	
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

@@ -31,7 +31,7 @@ public class HrBoardController {
 	public String create(Employees employees) throws Exception {
 		logger.info("create");
 		service.create(employees);
-		return "redirect:/";
+		return "redirect:/vit";
 	}
 	
 

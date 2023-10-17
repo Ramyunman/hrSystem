@@ -9,7 +9,8 @@
 		INSERT INTO employees ( name
 								, email
 								, phone_number
-								, hire_date, leave_date
+								, hire_date
+								, leave_date
 								, department_id
 								, address
 								, reg_no

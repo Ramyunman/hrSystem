@@ -4,17 +4,17 @@ import java.util.Date;
 
 public class Employees {
 	
-	private int employee_id;
-	private String name;
-	private String email;
-	private String phone_number;
-	private Date hire_date;
-	private Date leave_date;
-	private int department_id;
-	private String address;
-	private int reg_no;
-	private int bank_id;
-	private String bank_account;
+	private int employee_id;		// 직원번호	
+	private String name;			// 성명
+	private String email;			// 이메일
+	private String phone_number;	// 전화번호
+	private Date hire_date;			// 입사일
+	private Date leave_date;		// 퇴사일
+	private int department_id;		// 부서번호
+	private String address;			// 주소
+	private int reg_no;				// 주민번호
+	private int bank_id;			// 은행번호
+	private String bank_account;	// 급여계좌
 	
 	public int getEmployee_id() {
 		return employee_id;
