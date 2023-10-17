@@ -25,5 +25,11 @@ public class BoardDAOImpl implements BoardDAO {
 	public List<Employees> list() throws Exception {
 		return sqlSession.selectList("boardMapper.list");
 	}
+	
+	// 직원 조회
+	public Employees read(int employee_id) throws Exception {
+		return sqlSession.selectOne("boardMapper.read", employee_id);
+		
+	}
 
 }

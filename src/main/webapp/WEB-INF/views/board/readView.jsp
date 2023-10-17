@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-<title>직원 등록창</title>
+<title>직원 조회창</title>
 </head>
 <body>
 <div id="root">
@@ -28,57 +28,57 @@
   			<div class="form-row">
     			<div class="form-group col-md-6">
       				<label for="name">성명</label>
-      				<input type="text" class="form-control" id="name" name="name" placeholder="성명">
+      				<input type="text" class="form-control" id="name" name="name" value="${read.name}">
     			</div>
     			<div class="form-group col-md-6">
       				<label for="reg_no">주민번호</label>
-      				<input type="text" class="form-control" id="reg_no" name="reg_no" placeholder="주민번호">
+      				<input type="text" class="form-control" id="reg_no" name="reg_no" value="${read.reg_no}">
     			</div>
   			</div>
   			<div class="form-group">
     			<label for="address">주소</label>
-    			<textarea class="form-control" id="address" rows="3" name="address" placeholder="주소"></textarea>
+    			<textarea class="form-control" id="address" rows="3" name="address" value="${read.address}"></textarea>
 	  		</div>
   			<div class="form-row">
     			<div class="form-group col-md-4">
       				<label for="hire_date">입사일</label>
-	      			<input type="text" class="form-control" id="hire_date" name="hire_date">
+	      			<input type="text" class="form-control" id="hire_date" name="hire_date" value="${read.hire_date}">
     			</div>
     			<div class="form-group col-md-4">
       				<label for="department_id">부서명</label>
-      				<select id="inputDepatment" class="form-control" name="department_id">
+      				<select id="inputDepatment" class="form-control" name="department_id" value="${read.department_id}">
         				<option selected>Choose...</option>
         				<option>60</option>
 	      			</select>
     			</div>
     			<div class="form-group col-md-4">
       				<label for="leave_date">퇴사일</label>
-      				<input type="text" class="form-control" id="leave_date" name="leave_date">
+      				<input type="text" class="form-control" id="leave_date" name="leave_date" value="${read.leave_date}">
 	    		</div>
   			</div>
   			<div class="form-row">
     			<div class="form-group col-md-4">
       				<label for="bank_id">급여은행</label>
-      				<select id="inputBank" class="form-control" name="bank_id">
+      				<select id="inputBank" class="form-control" name="bank_id" value="${read.bank_id}">
         				<option selected>Choose...</option>
         				<option>12</option>
 	      			</select>
     			</div>
     			<div class="form-group col-md-8">
       				<label for="bank_account">급여계좌</label>
-      				<input type="text" class="form-control" id="bank_account" name="bank_account">
+      				<input type="text" class="form-control" id="bank_account" name="bank_account" value="${read.bank_account}">
 	    		</div>
   			</div>
   			<div class="form-group">
     			<label for="phone_number">전화번호</label>
-    			<input type="text" class="form-control" id="phone_number" name="phone_number" placeholder="전화번호">
+    			<input type="text" class="form-control" id="phone_number" name="phone_number" value="${read.phone_number}">
 	  		</div>
   			<div class="form-group">
     			<label for="email">이메일</label>
-    			<input type="email" class="form-control" id="email" name="email" placeholder="이메일">
+    			<input type="email" class="form-control" id="email" name="email" value="${read.email}">
   			</div>
   		
-  			<button type="submit" class="btn btn-dark create_btn">저장</button>
+  			<button type="submit" class="btn btn-dark update_btn">저장</button>
 		</form>
 	</section>
 </div>  	

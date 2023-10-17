@@ -39,8 +39,20 @@
 					, HIRE_DATE
 					, LEAVE_DATE
 					, EMAIL
-		FROM	employees
-		ORDER BY EMPLOYEE_ID DESC
+			FROM	employees
+			ORDER BY EMPLOYEE_ID DESC
+	</select>
+	
+	<select id="read" parameterType="int" resultType="kr.co.vo.Employees">
+		SELECT		EMPLOYEE_ID
+			  		, NAME
+					, REG_NO
+					, DEPARTMENT_ID
+					, HIRE_DATE
+					, LEAVE_DATE
+					, EMAIL
+			FROM	employees
+			WHERE EMPLOYEE_ID = #{EMPLOYEE_ID}
 	</select>
 
 </mapper>

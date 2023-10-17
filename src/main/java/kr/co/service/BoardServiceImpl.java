@@ -25,4 +25,9 @@ public class BoardServiceImpl implements BoardService {
 	public List<Employees> list() throws Exception {
 		return dao.list();
 	}
+	
+	// 직원 조회
+	public Employees read(int employee_id) throws Exception {
+		return dao.read(employee_id);
+	}
 }

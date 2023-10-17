@@ -11,5 +11,8 @@ public interface BoardService {
 	
 	// 직원 목록 조회
 	public List<Employees> list() throws Exception;
+	
+	// 직원 조회
+	public Employees read(int employee_id) throws Exception;
 
 }

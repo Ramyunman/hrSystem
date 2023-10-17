@@ -42,5 +42,13 @@ public class BoardController {
 		model.addAttribute("list", service.list());
 		return "board/list";
 	}
+	
+	// 직원 조회
+	@RequestMapping(value = "/readView", method = RequestMethod.GET)
+	public String read(Employees employees, Model model) throws Exception {
+		logger.info("read");
+		model.addAttribute("read", service.read(employees.getEmployee_id()));
+		return "/board/readView";
+	}
 
 }
