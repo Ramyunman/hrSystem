@@ -33,6 +33,12 @@ public class BoardServiceImpl implements BoardService {
 		return dao.read(employee_id);
 	}
 	
+	// 직원 정보 수정 전
+	@Override
+	public Employee beforeUpdate(int employee_id) throws Exception {
+		return dao.beforeUpdate(employee_id);
+	}
+		
 	// 직원 수정
 	@Override
 	public void update(Employee employee) throws Exception {

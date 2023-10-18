@@ -70,10 +70,21 @@
 					, HIRE_DATE
 					, LEAVE_DATE
 					, EMAIL
+					, ADDRESS
+					, PHONE_NUMBER
+					, BANK_ACCOUNT
 			FROM	employees
 			WHERE EMPLOYEE_ID = #{EMPLOYEE_ID}
 	</select>
 	
+	<select id="beforeUpdate" parameterType="int" resultMap="employeeResultMap">
+		SELECT 		e.*, d.department_name
+		FROM 		employees e
+		JOIN 		departments d
+		ON 			e.department_id = d.department_id
+		WHERE employee_id = #{employee_id}
+	</select>
+
 	<update id="update" parameterType="kr.co.vo.Employee">
 		UPDATE		employees
 		SET			NAME	=	#{name},
