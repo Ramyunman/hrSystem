@@ -39,14 +39,15 @@
   			</div>
   			<div class="form-group">
     			<label for="address">주소</label>
-    			<textarea class="form-control" id="address" rows="3" name="address" value="${read.address}" readonly="readonly"></textarea>
-	  		</div>
+    			<textarea class="form-control" id="address" rows="3" name="address" readonly="readonly">${read.address}</textarea>
+			</div>
   			<div class="form-row">
     			<div class="form-group col-md-4">
-      				<label for="hire_date">입사일</label>
-      				<fmt:formatDate value="${read.hire_date}" pattern="yy/MM/dd" var="formattedHireDate"/>
-	      			<input type="text" class="form-control" id="hire_date" name="hire_date" value="${formattedHireDate}" readonly="readonly">
-    			</div>
+  					<label for="hire_date">입사일</label>
+  					<fmt:formatDate value="${read.hire_date}" pattern="yy/MM/dd" var="formattedHireDate"/>
+  					<input type="text" class="form-control" id="hire_date" name="hire_date" value="${formattedHireDate}" readonly="readonly">
+				</div>
+
     			<div class="form-group col-md-4">
       				<label for="department_id">부서명</label>
       				<select id="inputDepatment" class="form-control" name="department_id" value="${read.department.department_name}" readonly="readonly">
@@ -55,9 +56,9 @@
 	      			</select>
     			</div>
     			<div class="form-group col-md-4">
-  					<label for="leave_date">퇴사일</label>
-  					<fmt:formatDate value="${read.leave_date}" pattern="yy/MM/dd" var="formattedLeaveDate" />
-  					<input type="text" class="form-control" id="leave_date" name="leave_date" value="${formattedLeaveDate}" readonly="readonly">
+  					<label for="hire_date">입사일</label>
+  					<fmt:formatDate value="${read.hire_date}" pattern="yy/MM/dd" var="formattedLeaveDate"/>
+  					<input type="text" class="form-control" id="hire_date" name="hire_date" value="${formattedLeaveDate}" readonly="readonly">
 				</div>
   			</div>
   			<div class="form-row">

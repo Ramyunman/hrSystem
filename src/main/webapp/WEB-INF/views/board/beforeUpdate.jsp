@@ -39,14 +39,14 @@
   			</div>
   			<div class="form-group">
     			<label for="address">주소</label>
-    			<textarea class="form-control" id="address" rows="3" name="address" value="${beforeUpdate.address}"></textarea>
-	  		</div>
+    			<textarea class="form-control" id="address" rows="3" name="address">${beforeUpdate.address}</textarea>
+			</div>
   			<div class="form-row">
     			<div class="form-group col-md-4">
-      				<label for="hire_date">입사일</label>
-      				<fmt:formatDate value="${read.hire_date}" pattern="yy/MM/dd" var="formattedHireDate"/>
-	      			<input type="text" class="form-control" id="hire_date" name="hire_date" value="${beforeUpdate.hire_date}">
-    			</div>
+  					<label for="hire_date">입사일</label>
+  					<fmt:formatDate value="${beforeUpdate.hire_date}" pattern="yy/MM/dd" var="formattedHireDate"/>
+  					<input type="text" class="form-control" id="hire_date" name="hire_date" value="${formattedHireDate}">
+				</div>
     			<div class="form-group col-md-4">
       				<label for="department_id">부서명</label>
       				<select id="inputDepatment" class="form-control" name="department_id" value="${beforeUpdate.department_id}">
@@ -55,9 +55,9 @@
 	      			</select>
     			</div>
     			<div class="form-group col-md-4">
-  					<label for="leave_date">퇴사일</label>
-  					<fmt:formatDate value="${read.leave_date}" pattern="yy/MM/dd" var="formattedLeaveDate" />
-  					<input type="text" class="form-control" id="leave_date" name="leave_date" value="${beforeUpdate.leave_date}">
+  					<label for="hire_date">퇴사일</label>
+  					<fmt:formatDate value="${beforeUpdate.leave_date}" pattern="yy/MM/dd" var="formattedLeaveDate"/>
+  					<input type="text" class="form-control" id="hire_date" name="hire_date" value="${formattedLeaveDate}">
 				</div>
   			</div>
   			<div class="form-row">
@@ -95,8 +95,8 @@ $(document).ready(function() {
         let Name = '${beforeUpdate.name}';
         let Email = '${beforeUpdate.email}';
        	let PhoneNumber = '${beforeUpdate.phone_number}';
-       	let HireDate = '${beforeUpdate.hire_date}';
-        let LeaveDate = '${beforeUpdate.leave_date}';
+       	let HireDate = '${formattedHireDate}';
+        let LeaveDate = '${formattedLeaveDate}';
         let DepartmentId = '${beforeUpdate.department_id}';
        	let Address = '${beforeUpdate.address}';
        	let RegNo = '${beforeUpdate.reg_no}';
