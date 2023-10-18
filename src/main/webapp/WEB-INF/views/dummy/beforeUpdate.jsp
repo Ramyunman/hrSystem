@@ -26,58 +26,58 @@
   	
   	<section id="container">
   		<form action="/dummy/update" method="post">
-  			<input type="hidden" name="employee_id" value="${beforeUpdate.employee_id}">
+  			<input type="hidden" name="employee_id" value="${employee.employee_id}">
   			<div class="form-row">
     			<div class="form-group col-md-6">
       				<label for="name">성명</label>
-      				<input type="text" class="form-control" id="name" name="name" value="${beforeUpdate.name}">
+      				<input type="text" class="form-control" id="name" name="name" value="${employee.name}">
     			</div>
     			<div class="form-group col-md-6">
       				<label for="reg_no">주민번호</label>
-      				<input type="text" class="form-control" id="reg_no" name="reg_no" value="${beforeUpdate.reg_no}">
+      				<input type="text" class="form-control" id="reg_no" name="reg_no" value="${employee.reg_no}">
     			</div>
   			</div>
   			<div class="form-group">
     			<label for="address">주소</label>
-    			<textarea class="form-control" id="address" rows="3" name="address">${beforeUpdate.address}</textarea>
+    			<textarea class="form-control" id="address" rows="3" name="address">${employee.address}</textarea>
 			</div>
   			<div class="form-row">
     			<div class="form-group col-md-4">
   					<label for="hire_date">입사일</label>
-  					<input type="text" class="form-control" id="hire_date" name="hire_date" value="${beforeUpdate.hire_date}">
+  					<input type="text" class="form-control" id="hire_date" name="hire_date" value="${employee.hire_date}">
 				</div>
     			<div class="form-group col-md-4">
       				<label for="department_id">부서명</label>
-      				<select id="inputDepatment" class="form-control" name="department_id" value="${beforeUpdate.department_id}">
+      				<select id="inputDepatment" class="form-control" name="department_id" value="${employee.department_id}">
         				<option selected>Choose...</option>
         				<option>60</option>
 	      			</select>
     			</div>
     			<div class="form-group col-md-4">
   					<label for="hire_date">퇴사일</label>
-  					<input type="text" class="form-control" id="leave_date" name="leave_date" value="${beforeUpdate.leave_date}">
+  					<input type="text" class="form-control" id="leave_date" name="leave_date" value="${employee.leave_date}">
 				</div>
   			</div>
   			<div class="form-row">
     			<div class="form-group col-md-4">
       				<label for="bank_id">급여은행</label>
-      				<select id="inputBank" class="form-control" name="bank_id" value="${beforeUpdate.bank_id}">
+      				<select id="inputBank" class="form-control" name="bank_id" value="${employee.bank_id}">
         				<option selected>Choose...</option>
         				<option>12</option>
 	      			</select>
     			</div>
     			<div class="form-group col-md-8">
       				<label for="bank_account">급여계좌</label>
-      				<input type="text" class="form-control" id="bank_account" name="bank_account" value="${beforeUpdate.bank_account}">
+      				<input type="text" class="form-control" id="bank_account" name="bank_account" value="${employee.bank_account}">
 	    		</div>
   			</div>
   			<div class="form-group">
     			<label for="phone_number">전화번호</label>
-    			<input type="text" class="form-control" id="phone_number" name="phone_number" value="${beforeUpdate.phone_number}">
+    			<input type="text" class="form-control" id="phone_number" name="phone_number" value="${employee.phone_number}">
 	  		</div>
   			<div class="form-group">
     			<label for="email">이메일</label>
-    			<input type="email" class="form-control" id="email" name="email" value="${beforeUpdate.email}">
+    			<input type="email" class="form-control" id="email" name="email" value="${employee.email}">
   			</div>
   		
   			<button type="submit" class="btn btn-dark update_btn">저장</button>
@@ -90,7 +90,7 @@
 $(document).ready(function() {
     $('.update_btn').on('click', function() {
         // 수정할 데이터를 수집하는 코드
-        let employee_id = '${beforeUpdate.employee_id}';
+        let employee_id = '${employee.employee_id}';
         let name = $("#name").val();
         let email = $("#email").val();
        	let phone_number = $("#phone_number").val();

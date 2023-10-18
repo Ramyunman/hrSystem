@@ -62,7 +62,7 @@ public class DummyController {
 	@RequestMapping(value = "/beforeUpdate/{employee_id}", method = RequestMethod.GET)
 	public String beforeUpdate(@PathVariable("employee_id") int employee_id, Model model) throws Exception {
 		logger.info("beforeUpdate");
-		model.addAttribute("beforeUpdate", service.beforeUpdate(employee_id));
+		model.addAttribute("employee", service.beforeUpdate(employee_id));
 		return "/dummy/beforeUpdate";
 	}
 
@@ -71,6 +71,7 @@ public class DummyController {
 	public String update(Employee employee, Model model) throws Exception {
 		logger.info("update");
 		service.update(employee);
+		model.addAttribute("afterUpdate", employee);
 		return "/dummy/updateWan";
 	}
 	
