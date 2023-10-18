@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.PathVariable;
+import javax.servlet.http.HttpSession;
+
 
 
 import kr.co.service.BoardService;
@@ -64,9 +66,12 @@ public class BoardController {
 
 	// 직원 정보 수정
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String update(Employee employee) throws Exception {
+	public String update(Employee employee, HttpSession session) throws Exception {
 		logger.info("update");
 		service.update(employee);
+		
+		// 수정된 정보를 세션에 저장
+		session.setAttribute("updatedEmployee", employee);
 		return "redirect:/board/list";
 	}
 	

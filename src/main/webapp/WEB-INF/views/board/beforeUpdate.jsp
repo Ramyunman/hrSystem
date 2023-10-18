@@ -25,7 +25,7 @@
   	</ul>
   	
   	<section id="container">
-  		<form name="readForm" method="post" action="/board/update">
+  		<form id="beforeUpdateForm">
   			<input type="hidden" name="employee_id" value="${beforeUpdate.employee_id}">
   			<div class="form-row">
     			<div class="form-group col-md-6">
@@ -90,23 +90,24 @@ $(document).ready(function() {
     $('.update_btn').on('click', function() {
         // 수정할 데이터를 수집하는 코드
         let EmployeeId = '${beforeUpdate.employee_id}';
-        let Name = '${beforeUpdate.name}';
-        let Email = '${beforeUpdate.email}';
-       	let PhoneNumber = '${beforeUpdate.phone_number}';
-       	let HireDate = '${beforeUpdate.hire_date}';
-        let LeaveDate = '${beforeUpdate.leave_date}';
-        let DepartmentId = '${beforeUpdate.department_id}';
-       	let Address = '${beforeUpdate.address}';
-       	let RegNo = '${beforeUpdate.reg_no}';
-        let BankAccount = '${beforeUpdate.bank_account}';
-        let BankId = '${beforeUpdate.bank_id}';
-        
+        let Name = $("#name").val();
+        let Email = $("#email").val();
+       	let PhoneNumber = $("#phone_number").val();
+       	let HireDate = $("#hire_date").val();
+        let LeaveDate = $("#leave_date").val();
+        let DepartmentId = $("#department_id").val();
+       	let Address = $("#address").val();
+       	let RegNo = $("#reg_no").val();
+        let BankAccount = $("#bank_account").val(); 
+        let BankId = $("#bank_id").val();
+         
         // Ajax 요청
         $.ajax({
             url: '/board/update',  // 수정 엔드포인트 또는 컨트롤러 URL로 변경
+            dataType: 'json',
             type: 'POST',
-            data: {
-                employee_id: EmployeeId,
+            data: {        
+            	employee_id: EmployeeId,
                 name: Name,
                 email: Email,
                 phone_number: PhoneNumber,

@@ -75,6 +75,7 @@
 					, PHONE_NUMBER
 					, BANK_ACCOUNT
 			FROM	employees
+			
 			WHERE EMPLOYEE_ID = #{EMPLOYEE_ID}
 	</select>
 	
@@ -83,6 +84,7 @@
 		FROM 		employees e
 		JOIN 		departments d
 		ON 			e.department_id = d.department_id
+		
 		WHERE employee_id = #{employee_id}
 	</select>
 
@@ -94,16 +96,18 @@
 					HIRE_DATE	=	#{hire_date},
 					LEAVE_DATE	=	#{leave_date},
 					DEPARTMENT_ID	=	#{department_id},
-					ADDRESS	=	#{address},
-					REG_NO	=	#{reg_no},
-					BANK_ID	=	#{bank_id},
+					ADDRESS		=	#{address},
+					REG_NO		=	#{reg_no},
+					BANK_ID		=	#{bank_id},
 					BANK_ACCOUNT	=	#{bank_account}
+		
 		WHERE		EMPLOYEE_ID = #{employee_id} 
 	</update>
 
 	<delete id="delete" parameterType="int">
 		DELETE
 		FROM 	employees
+		
 		WHERE	EMPLOYEE_ID	= #{employee_id}
 	</delete>
 </mapper>

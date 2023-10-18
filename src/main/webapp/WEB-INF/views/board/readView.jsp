@@ -56,7 +56,7 @@
     			<div class="form-group col-md-4">
   					<label for="hire_date">퇴사일</label>
   					<input type="text" class="form-control" id="leave_date" name="leave_date" value="${read.leave_date}" readonly="readonly">
-				</div>>
+				</div>
   			</div>
   			<div class="form-row">
     			<div class="form-group col-md-4">
