@@ -80,7 +80,7 @@
     			<input type="email" class="form-control" id="email" name="email" value="${read.email}" readonly="readonly">
   			</div>
   		
-  			<button type="button" class="btn btn-dark beforeUpdate_btn" onclick="window.location.href='/dummy/beforeUpdate/${read.employee_id}'">수정</button>
+  			<button type="button" class="btn btn-dark beforeUpdate_btn">수정</button>
 
 		
 	</section>

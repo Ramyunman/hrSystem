@@ -25,7 +25,7 @@
   	</ul>
   	
   	<section id="container">
-  		<form action="/dummy/update" method="post">
+  		<form action="/dummy/update" method="post" name="beforeUpdateForm">
   			<input type="hidden" name="employee_id" value="${employee.employee_id}">
   			<div class="form-row">
     			<div class="form-group col-md-6">
@@ -84,7 +84,19 @@
 		</form>
 	</section>
 </div>  	
+<script type="text/javascript">
+	$(document).ready(function() {
+		var formObj = $("form[name='beforeUpdateForm']");
 
+		// 수정
+		$(".update_btn").on("click", function() {
+			formObj.attr("action", "/dummy/update");
+			formObj.attr("method", "post");
+			formObj.submit();
+			})
+		})
+
+</script>
 <!-- 
 <script>
 $(document).ready(function() {

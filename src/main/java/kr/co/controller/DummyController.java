@@ -58,8 +58,8 @@ public class DummyController {
 		return "/dummy/readView";
 	}
 	
-	// 직원 정보 수정뷰
-	@RequestMapping(value = "/beforeUpdate/{employee_id}", method = RequestMethod.GET)
+	// 직원 정보 수정하는 페이지
+	@RequestMapping(value = "/beforeUpdate", method = RequestMethod.GET)
 	public String beforeUpdate(@PathVariable("employee_id") int employee_id, Model model) throws Exception {
 		logger.info("beforeUpdate");
 		model.addAttribute("employee", service.beforeUpdate(employee_id));
@@ -67,12 +67,12 @@ public class DummyController {
 	}
 
 	// 직원 정보 수정
-	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String update(Employee employee, Model model) throws Exception {
+	@RequestMapping(value = "/update")
+	public String update(Employee employee) throws Exception {
 		logger.info("update");
 		service.update(employee);
-		model.addAttribute("afterUpdate", employee);
-		return "/dummy/updateWan";
+		System.out.println("값 넘어오나 ->" + employee.getAddress());
+		return "redirect:/dummy/list";
 	}
 	
 	// 직원 정보 삭제
