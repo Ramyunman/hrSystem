@@ -20,12 +20,12 @@
 	
 	<ul class="nav">
   		<li class="nav-item">
-    		<a class="nav-link active" href="/board/list">사원목록</a>
+    		<a class="nav-link active" href="/dummy/list">사원목록</a>
   		</li>
   	</ul>
   	
   	<section id="container">
-  		<form id="beforeUpdateForm">
+  		<form action="/dummy/update" method="post">
   			<input type="hidden" name="employee_id" value="${beforeUpdate.employee_id}">
   			<div class="form-row">
     			<div class="form-group col-md-6">
@@ -80,64 +80,58 @@
     			<input type="email" class="form-control" id="email" name="email" value="${beforeUpdate.email}">
   			</div>
   		
-  			<button type="button" class="btn btn-dark update_btn">저장</button>
+  			<button type="submit" class="btn btn-dark update_btn">저장</button>
 		</form>
 	</section>
 </div>  	
 
+<!-- 
 <script>
 $(document).ready(function() {
     $('.update_btn').on('click', function() {
         // 수정할 데이터를 수집하는 코드
-        let EmployeeId = '${beforeUpdate.employee_id}';
-        let Name = $("#name").val();
-        let Email = $("#email").val();
-       	let PhoneNumber = $("#phone_number").val();
-       	let HireDate = $("#hire_date").val();
-        let LeaveDate = $("#leave_date").val();
-        let DepartmentId = $("#department_id").val();
-       	let Address = $("#address").val();
-       	let RegNo = $("#reg_no").val();
-        let BankAccount = $("#bank_account").val(); 
-        let BankId = $("#bank_id").val();
+        let employee_id = '${beforeUpdate.employee_id}';
+        let name = $("#name").val();
+        let email = $("#email").val();
+       	let phone_number = $("#phone_number").val();
+       	let hire_date = $("#hire_date").val();
+        let leave_date = $("#leave_date").val();
+        let department_id = $("#department_id").val();
+       	let address = $("#address").val();
+       	let reg_no = $("#reg_no").val();
+        let bank_account = $("#bank_account").val(); 
+        let bank_id = $("#bank_id").val();
 
         // Ajax 요청
         $.ajax({
-            url: '/board/update',  // 수정 엔드포인트 또는 컨트롤러 URL로 변경
-            dataType: 'json',
+            url: '/dummy/update',  // 수정 엔드포인트 또는 컨트롤러 URL로 변경
             type: 'POST',
             data: {        
-            	employee_id: EmployeeId,
-                name: Name,
-                email: Email,
-                phone_number: PhoneNumber,
-                hire_date: HireDate,
-                leave_date: LeaveDate,
-                department_id: DepartmentId,
-                address: Address,
-                reg_no: RegNo,
-                bank_account: BankAccount,
-                bank_id: BankId
-            },
-            success: function(response) {
-                // 성공적인 응답 처리
-                if (response.success) {
-                    alert('수정이 완료되었습니다.');
-                    // 여기서 페이지를 다시 로드하거나, 다른 동작을 수행할 수 있음
-                } else {
-                    alert('수정에 실패했습니다.');
-                }
+            	"employee_id": employee_id,
+                "name": name,
+                "email": email,
+                "phone_number": phone_number,
+                "hire_date": hire_date,
+                "leave_date": leave_date,
+                "department_id": department_id,
+                "address": address,
+                "reg_no": reg_no,
+                "bank_account": bank_account,
+                "bank_id": bank_id
+            									},
+          	contentType: "application/json; charset=UTF-8",
+            success: function(data) {
+                alert("성공");
             },
             error: function(xhr, status, error) {
-                // 오류 처리
-                alert('오류 발생: ' + error);
+				alert("ERROR : " + status + " : " + error);
             }
         });
     });
 });
 
 </script>
-
+ -->
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>

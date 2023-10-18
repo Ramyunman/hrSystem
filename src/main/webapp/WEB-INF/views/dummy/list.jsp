@@ -67,7 +67,7 @@
       				<td>
             			<input type="checkbox" class="checkbox-class" name="selectedItems" value="${item.itemId}">
             		</td>
-      				<td><a href="${pageContext.request.contextPath}/board/readView/${list.employee_id}">${list.employee_id}</a></td>
+      				<td><a href="${pageContext.request.contextPath}/dummy/readView/${list.employee_id}">${list.employee_id}</a></td>
 
       				<td><c:out value="${list.name}"/></td>
       				<td><c:out value="${list.reg_no}"/></td>
