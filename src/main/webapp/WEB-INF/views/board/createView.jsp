@@ -12,7 +12,7 @@
 <title>직원 등록창</title>
 </head>
 <body>
-<div id="root">
+<div id="container">
 	<header>
 		<h1>인사관리 시스템</h1>
 	</header>

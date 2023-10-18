@@ -13,5 +13,11 @@ public interface BoardDAO {
 	
 	// 직원 정보 조회
 	public Employee read(int employee_id) throws Exception;
+	
+	// 직원 수정
+	public void update(Employee employee) throws Exception;
+	
+	// 직원 삭제
+	public void delete(int employee_id) throws Exception;
 
 }

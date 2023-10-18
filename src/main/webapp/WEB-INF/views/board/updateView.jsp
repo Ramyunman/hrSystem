@@ -25,7 +25,8 @@
   	</ul>
   	
   	<section id="container">
-  		
+  		<form name="readForm" method="post" action="/board/update">
+  			<input type="hidden" name="employee_id" value="${read.employee_id}">
   			<div class="form-row">
     			<div class="form-group col-md-6">
       				<label for="name">성명</label>
@@ -82,21 +83,12 @@
   			</div>
   		
   			<button type="submit" class="btn btn-dark update_btn">수정</button>
-		
+		</form>
 	</section>
 </div>  	
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
-<script>
-$(document).ready(function() {
-    $('.update_btn').on('click', function() {
-        // 클릭 이벤트 발생 시 updateView.jsp로 이동
-        window.location.href = '<%= request.getContextPath() %>/board/updateView';
-    });
-});
-
-</script>
 
 </html>

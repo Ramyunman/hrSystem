@@ -64,7 +64,7 @@
   			<c:forEach items="${list}" var="list">
     			<tr>
       				<td>
-            			<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+            			<input type="checkbox" class="checkbox-class" name="selectedItems" value="${item.itemId}">
             		</td>
       				<td><a href="${pageContext.request.contextPath}/board/readView/${list.employee_id}">${list.employee_id}</a></td>
 
@@ -99,8 +99,8 @@
 	</nav>
 	
 	<div class="d-grid gap-2 d-md-block">
-  		<button class="btn btn-dark add" type="button" onclick="window.location.href='createView'">추가</button>
-  		<button class="btn btn-dark delete" type="button">삭제</button>
+  		<button class="btn btn-dark create_btn" type="button" onclick="window.location.href='createView'">추가</button>
+  		<button class="btn btn-dark delete_btn" type="button">삭제</button>
 	</div>
 </div>	
 	
@@ -108,9 +108,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
-<script>
 
-</script>
 </html>
 	
 </body>

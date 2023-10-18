@@ -54,4 +54,19 @@ public class BoardController {
 		return "/board/readView";
 	}
 
+	// 직원 정보 수정
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public String update(Employee employee) throws Exception {
+		logger.info("update");
+		service.update(employee);
+		return "redirect:/board/list";
+	}
+	
+	// 직원 정보 삭제
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+	public String delete(Employee employee) throws Exception {
+		logger.info("delete");
+		service.delete(employee.getEmployee_id());
+		return "redirect:/board/list";
+	}
 }
