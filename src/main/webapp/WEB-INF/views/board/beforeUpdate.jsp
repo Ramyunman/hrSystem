@@ -44,8 +44,7 @@
   			<div class="form-row">
     			<div class="form-group col-md-4">
   					<label for="hire_date">입사일</label>
-  					<fmt:formatDate value="${beforeUpdate.hire_date}" pattern="yy/MM/dd" var="formattedHireDate"/>
-  					<input type="text" class="form-control" id="hire_date" name="hire_date" value="${formattedHireDate}">
+  					<input type="text" class="form-control" id="hire_date" name="hire_date" value="${beforeUpdate.hire_date}">
 				</div>
     			<div class="form-group col-md-4">
       				<label for="department_id">부서명</label>
@@ -56,8 +55,7 @@
     			</div>
     			<div class="form-group col-md-4">
   					<label for="hire_date">퇴사일</label>
-  					<fmt:formatDate value="${beforeUpdate.leave_date}" pattern="yy/MM/dd" var="formattedLeaveDate"/>
-  					<input type="text" class="form-control" id="hire_date" name="hire_date" value="${formattedLeaveDate}">
+  					<input type="text" class="form-control" id="leave_date" name="leave_date" value="${beforeUpdate.leave_date}">
 				</div>
   			</div>
   			<div class="form-row">
@@ -95,8 +93,8 @@ $(document).ready(function() {
         let Name = '${beforeUpdate.name}';
         let Email = '${beforeUpdate.email}';
        	let PhoneNumber = '${beforeUpdate.phone_number}';
-       	let HireDate = '${formattedHireDate}';
-        let LeaveDate = '${formattedLeaveDate}';
+       	let HireDate = '${beforeUpdate.hire_date}';
+        let LeaveDate = '${beforeUpdate.leave_date}';
         let DepartmentId = '${beforeUpdate.department_id}';
        	let Address = '${beforeUpdate.address}';
        	let RegNo = '${beforeUpdate.reg_no}';

@@ -73,8 +73,8 @@
       				<td><c:out value="${list.reg_no}"/></td>
       				<td><c:out value="${list.department.department_name}"/></td>
       				<td>직위</td>
-      				<td><fmt:formatDate value="${list.hire_date}" pattern="yy/MM/dd" /></td>
-      				<td><fmt:formatDate value="${list.leave_date}" pattern="yy/MM/dd" /></td>
+      				<td><c:out value="${list.hire_date}"/></td>
+      				<td><c:out value="${list.leave_date}"/></td>
       				<td><c:out value="${list.email}"/></td>
     			</tr>
     		</c:forEach>
