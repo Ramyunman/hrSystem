@@ -2,15 +2,18 @@ package kr.co.controller;
 
 import javax.inject.Inject;
 
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 import kr.co.service.BoardService;
-import kr.co.vo.Employees;
+import kr.co.vo.Employee;
 
 @Controller
 @RequestMapping("/board/*")
@@ -29,9 +32,9 @@ public class BoardController {
 	
 	// 직원 등록
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public String create(Employees employees) throws Exception {
+	public String create(Employee employee) throws Exception {
 		logger.info("create");
-		service.create(employees);
+		service.create(employee);
 		return "redirect:/board/list";
 	}
 	
@@ -43,11 +46,11 @@ public class BoardController {
 		return "board/list";
 	}
 	
-	// 직원 조회
-	@RequestMapping(value = "/readView", method = RequestMethod.GET)
-	public String read(Employees employees, Model model) throws Exception {
+	// 직원 정보 조회
+	@RequestMapping(value = "/readView/{employee_id}", method = RequestMethod.GET)
+	public String read(@PathVariable("employee_id") int employee_id, Model model) throws Exception {
 		logger.info("read");
-		model.addAttribute("read", service.read(employees.getEmployee_id()));
+		model.addAttribute("read", service.read(employee_id));
 		return "/board/readView";
 	}
 

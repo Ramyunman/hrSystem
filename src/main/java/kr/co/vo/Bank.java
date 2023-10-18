@@ -1,6 +1,6 @@
 package kr.co.vo;
 
-public class Banks {
+public class Bank {
 	
 	private int bank_id;
 	private String bank_name;

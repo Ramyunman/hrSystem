@@ -31,19 +31,38 @@
     				)
 	</insert>
 	
-	<select id="list" resultType="kr.co.vo.Employees">
-		SELECT		EMPLOYEE_ID
-			  		, NAME
-					, REG_NO
-					, DEPARTMENT_ID
-					, HIRE_DATE
-					, LEAVE_DATE
-					, EMAIL
-			FROM	employees
-			ORDER BY EMPLOYEE_ID DESC
-	</select>
+	<resultMap id="employeeResultMap" type="kr.co.vo.Employee">
+		<id property="employee_id" column="employee_id"/>
+		<result property="name" column="name" />
+  		<result property="email" column="email" />
+  		<result property="phone_number" column="phone_number" />
+  		<result property="hire_date" column="hire_date" />
+  		<result property="leave_date" column="leave_date" />
+  		<result property="address" column="address" />
+  		<result property="reg_no" column="reg_no" />
+  		<result property="bank_id" column="bank_id" />
+  		<result property="bank_account" column="bank_account" />
+  		<association property="department" resultMap="departmentResultMap"/>
+	</resultMap>
 	
-	<select id="read" parameterType="int" resultType="kr.co.vo.Employees">
+	<resultMap id="departmentResultMap" type="kr.co.vo.Department">
+		<id property="department_id" column="department_id"/>
+		<result property="department_name" column="department_name" />
+	</resultMap>
+	
+	<resultMap id="bankResultMap" type="kr.co.vo.Bank">
+		<id property="bank_id" column="bank_id"/>
+		<result property="bank_name" column="bank_name" />
+	</resultMap>
+	
+	<select id="list" resultMap="employeeResultMap">
+		SELECT e.*, d.department_name
+		FROM employees e
+		JOIN departments d
+		ON e.department_id = d.department_id
+	</select>
+		
+	<select id="read" parameterType="int" resultType="kr.co.vo.Employee">
 		SELECT		EMPLOYEE_ID
 			  		, NAME
 					, REG_NO

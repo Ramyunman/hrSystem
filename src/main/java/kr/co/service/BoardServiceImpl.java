@@ -6,7 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
-import kr.co.vo.Employees;
+import kr.co.vo.Employee;
 import kr.co.dao.BoardDAO;
 
 @Service
@@ -17,17 +17,17 @@ public class BoardServiceImpl implements BoardService {
 	
 	// 직원 추가
 	@Override
-	public void create(Employees employees) throws Exception {
-		dao.create(employees);
+	public void create(Employee employee) throws Exception {
+		dao.create(employee);
 	}
 
 	// 직원 목록 조회
-	public List<Employees> list() throws Exception {
+	public List<Employee> list() throws Exception {
 		return dao.list();
 	}
 	
-	// 직원 조회
-	public Employees read(int employee_id) throws Exception {
+	// 직원 정보 조회
+	public Employee read(int employee_id) throws Exception {
 		return dao.read(employee_id);
 	}
 }

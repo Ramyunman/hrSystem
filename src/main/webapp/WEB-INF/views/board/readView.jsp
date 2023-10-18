@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-<title>직원 조회창</title>
+<title>직원 정보창</title>
 </head>
 <body>
 <div id="root">
@@ -19,7 +19,7 @@
 	
 	<ul class="nav">
   		<li class="nav-item">
-    		<a class="nav-link active" href="#">사원목록</a>
+    		<a class="nav-link active" href="/board/list">사원목록</a>
   		</li>
   	</ul>
   	
@@ -46,7 +46,7 @@
     			</div>
     			<div class="form-group col-md-4">
       				<label for="department_id">부서명</label>
-      				<select id="inputDepatment" class="form-control" name="department_id" value="${read.department_id}">
+      				<select id="inputDepatment" class="form-control" name="department_id" value="${read.department.department_name}">
         				<option selected>Choose...</option>
         				<option>60</option>
 	      			</select>

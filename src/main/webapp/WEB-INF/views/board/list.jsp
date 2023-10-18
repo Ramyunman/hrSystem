@@ -21,7 +21,7 @@
 
 	<ul class="nav">
   		<li class="nav-item">
-    		<a class="nav-link active" href="#">사원목록</a>
+    		<a class="nav-link active" href="list">사원목록</a>
   		</li>
   	</ul>
   	
@@ -66,10 +66,11 @@
       				<td>
             			<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
             		</td>
-      				<td><c:out value="${list.employee_id}"/></td>
+      				<td><a href="${pageContext.request.contextPath}/board/readView/${list.employee_id}">${list.employee_id}</a></td>
+
       				<td><c:out value="${list.name}"/></td>
       				<td><c:out value="${list.reg_no}"/></td>
-      				<td><c:out value="${list.department_id}"/></td>
+      				<td><c:out value="${list.department.department_name}"/></td>
       				<td>직위</td>
       				<td><fmt:formatDate value="${list.hire_date}" pattern="yyyy-MM-dd"/></td>
       				<td><fmt:formatDate value="${list.leave_date}" pattern="yyyy-MM-dd"/></td>

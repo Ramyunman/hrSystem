@@ -19,7 +19,7 @@
 	
 	<ul class="nav">
   		<li class="nav-item">
-    		<a class="nav-link active" href="#">사원목록</a>
+    		<a class="nav-link active" href="list">사원목록</a>
   		</li>
   	</ul>
   	
@@ -48,6 +48,11 @@
       				<label for="department_id">부서명</label>
       				<select id="inputDepatment" class="form-control" name="department_id">
         				<option selected>Choose...</option>
+        				<option>10</option>
+        				<option>20</option>
+        				<option>30</option>
+        				<option>40</option>
+        				<option>50</option>
         				<option>60</option>
 	      			</select>
     			</div>
@@ -61,7 +66,10 @@
       				<label for="bank_id">급여은행</label>
       				<select id="inputBank" class="form-control" name="bank_id">
         				<option selected>Choose...</option>
+        				<option>11</option>
         				<option>12</option>
+        				<option>13</option>
+        				<option>14</option>
 	      			</select>
     			</div>
     			<div class="form-group col-md-8">

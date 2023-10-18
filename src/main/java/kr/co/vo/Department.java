@@ -1,6 +1,6 @@
 package kr.co.vo;
 
-public class Departments {
+public class Department {
 
 	private int department_id;
 	private String department_name;

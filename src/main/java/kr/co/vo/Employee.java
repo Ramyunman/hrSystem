@@ -2,7 +2,7 @@ package kr.co.vo;
 
 import java.util.Date;
 
-public class Employees {
+public class Employee {
 	
 	private int employee_id;		// 직원번호	
 	private String name;			// 성명
@@ -15,6 +15,8 @@ public class Employees {
 	private long reg_no;				// 주민번호
 	private int bank_id;			// 은행번호
 	private String bank_account;	// 급여계좌
+	private Department department;
+	private Bank bank;
 	
 	public int getEmployee_id() {
 		return employee_id;
@@ -81,6 +83,18 @@ public class Employees {
 	}
 	public void setBank_account(String bank_account) {
 		this.bank_account = bank_account;
+	}
+	public Department getDepartment() {
+		return department;
+	}
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+	public Bank getBank() {
+		return bank;
+	}
+	public void setBank(Bank bank) {
+		this.bank = bank;
 	}
 	
 	
