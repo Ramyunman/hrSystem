@@ -94,5 +94,7 @@ public class DummyController {
 		return "redirect:/dummy/list";
 	}
 	
+
+	
 	
 }
