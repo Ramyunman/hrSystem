@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 	<title>직원 목록창</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
 	<style>
@@ -67,7 +67,9 @@
       				<td>
             			<input type="checkbox" class="checkbox-class" name="selectedItems" value="${item.itemId}">
             		</td>
-      				<td><a href="${pageContext.request.contextPath}/dummy/readView/${list.employee_id}">${list.employee_id}</a></td>
+      				<td>
+      					<a href="/dummy/readView?employee_id=${list.employee_id}"><c:out value ="${list.employee_id}"/></a>
+      				</td>
 
       				<td><c:out value="${list.name}"/></td>
       				<td><c:out value="${list.reg_no}"/></td>
@@ -103,6 +105,7 @@
   		<button class="btn btn-dark create_btn" type="button" onclick="window.location.href='createView'">추가</button>
   		<button class="btn btn-dark delete_btn" type="button">삭제</button>
 	</div>
+	
 </div>	
 	
 	

@@ -51,27 +51,33 @@ public class DummyController {
 	}
 	
 	// 직원 정보 조회
-	@RequestMapping(value = "/readView/{employee_id}", method = RequestMethod.GET)
-	public String read(@PathVariable("employee_id") int employee_id, Model model) throws Exception {
+	@RequestMapping(value = "/readView", method = RequestMethod.GET)
+	public String read(Employee employee, Model model) throws Exception {
 		logger.info("read");
-		model.addAttribute("read", service.read(employee_id));
+		model.addAttribute("read", service.read(employee.getEmployee_id()));
+		
 		return "/dummy/readView";
 	}
 	
-	// 직원 정보 수정하는 페이지
-	@RequestMapping(value = "/beforeUpdate", method = RequestMethod.GET)
-	public String beforeUpdate(@PathVariable("employee_id") int employee_id, Model model) throws Exception {
-		logger.info("beforeUpdate");
-		model.addAttribute("employee", service.beforeUpdate(employee_id));
-		return "/dummy/beforeUpdate";
+	// 직원 정보 수정뷰
+	@RequestMapping(value = "/updateView", method = RequestMethod.GET)
+	public String updateView(Employee employee, Model model) throws Exception {
+		logger.info("updateView");
+		model.addAttribute("update", service.read(employee.getEmployee_id()));
+		
+		return "/dummy/updateView";
 	}
 
 	// 직원 정보 수정
-	@RequestMapping(value = "/update")
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String update(Employee employee) throws Exception {
 		logger.info("update");
 		service.update(employee);
-		System.out.println("값 넘어오나 ->" + employee.getAddress());
+		System.out.println("Board 값 넘어오는지 확인 --> " + employee.getAddress());
+		System.out.println("Board 값 넘어오는지 확인 --> " + employee.getBank_account());
+		System.out.println("Board 값 넘어오는지 확인 --> " + employee.getPhone_number());
+		System.out.println("Board 값 넘어오는지 확인 --> " + employee.getName());
+		System.out.println("Board 값 넘어오는지 확인 --> " + employee.getReg_no());
 		return "redirect:/dummy/list";
 	}
 	
@@ -80,6 +86,7 @@ public class DummyController {
 	public String delete(Employee employee) throws Exception {
 		logger.info("delete");
 		service.delete(employee.getEmployee_id());
+		
 		return "redirect:/dummy/list";
 	}
 	

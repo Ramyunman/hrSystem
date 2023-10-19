@@ -106,6 +106,7 @@ $(document).ready(function() {
             url: '/board/update',  // 수정 엔드포인트 또는 컨트롤러 URL로 변경
             dataType: 'json',
             type: 'POST',
+            contentType:"application/json; charset=utf-8";
             data: {        
             	employee_id: EmployeeId,
                 name: Name,
@@ -124,6 +125,7 @@ $(document).ready(function() {
                 if (response.success) {
                     alert('수정이 완료되었습니다.');
                     // 여기서 페이지를 다시 로드하거나, 다른 동작을 수행할 수 있음
+                    location.href="/";
                 } else {
                     alert('수정에 실패했습니다.');
                 }

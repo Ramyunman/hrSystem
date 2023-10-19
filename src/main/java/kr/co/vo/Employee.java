@@ -17,6 +17,7 @@ public class Employee {
 	private String bank_account;	// 급여계좌
 	private Department department;
 	private Bank bank;
+	
 	public int getEmployee_id() {
 		return employee_id;
 	}

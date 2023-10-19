@@ -68,7 +68,7 @@ public class BoardController {
 	public String update(Employee employee) throws Exception {
 		logger.info("update");
 		service.update(employee);
-		return "redirect:/board/list";
+		return null;
 	}
 	
 	// 직원 정보 삭제
