@@ -1,9 +1,8 @@
 package kr.co.controller;
 
 import javax.inject.Inject;
+import kr.co.vo.Criteria;
 
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -11,7 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.PathVariable;
-import javax.servlet.http.HttpSession;
+
 
 import kr.co.service.BoardService;
 import kr.co.vo.Employee;
@@ -41,9 +40,9 @@ public class BoardController {
 	
 	// 직원 목록 조회
 	@RequestMapping(value ="/list", method = RequestMethod.GET)
-	public String list(Model model) throws Exception {
+	public String list(Model model, Criteria cri) throws Exception {
 		logger.info("list");
-		model.addAttribute("list", service.list());
+		model.addAttribute("list", service.list(cri));
 		return "board/list";
 	}
 	

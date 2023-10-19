@@ -14,9 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.PathVariable;
 import javax.servlet.http.HttpSession;
-
+import kr.co.vo.Criteria;
 import kr.co.service.BoardService;
 import kr.co.vo.Employee;
+import kr.co.vo.PageMaker;
 
 @Controller
 @RequestMapping("/dummy/*")
@@ -43,10 +44,15 @@ public class DummyController {
 	
 	// 직원 목록 조회
 	@RequestMapping(value ="/list", method = RequestMethod.GET)
-	public String list(Model model) throws Exception {
+	public String list(Model model, Criteria cri) throws Exception {
 		logger.info("list");
-		model.addAttribute("list", service.list());
-		System.out.println(model.addAttribute(model));
+		model.addAttribute("list", service.list(cri));
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(service.listCount());
+		
+		model.addAttribute("pageMaker", pageMaker);
 		return "dummy/list";
 	}
 	
@@ -73,11 +79,6 @@ public class DummyController {
 	public String update(Employee employee) throws Exception {
 		logger.info("update");
 		service.update(employee);
-		System.out.println("Board 값 넘어오는지 확인 --> " + employee.getAddress());
-		System.out.println("Board 값 넘어오는지 확인 --> " + employee.getBank_account());
-		System.out.println("Board 값 넘어오는지 확인 --> " + employee.getPhone_number());
-		System.out.println("Board 값 넘어오는지 확인 --> " + employee.getName());
-		System.out.println("Board 값 넘어오는지 확인 --> " + employee.getReg_no());
 		return "redirect:/dummy/list";
 	}
 	

@@ -49,41 +49,48 @@
 		<id property="department_id" column="department_id"/>
 		<result property="department_name" column="department_name" />
 	</resultMap>
-	
-	<resultMap id="bankResultMap" type="kr.co.vo.Bank">
-		<id property="bank_id" column="bank_id"/>
-		<result property="bank_name" column="bank_name" />
-	</resultMap>
-	
-	<select id="list" resultMap="employeeResultMap">
-		SELECT e.*, d.department_name
-		FROM employees e
-		JOIN departments d
-		ON e.department_id = d.department_id
-		ORDER BY employee_id DESC
+		
+	<select id="listPage" parameterType="Criteria" resultMap="employeeResultMap">
+		SELECT 		EMPLOYEE_ID,
+					NAME,
+					EMAIL,
+					PHONE_NUMBER,
+					HIRE_DATE,
+					LEAVE_DATE,
+					DEPARTMENT_ID,
+					ADDRESS,
+					REG_NO,
+					BANK_ID,
+					BANK_ACCOUNT,
+					DEPARTMENT_NAME
+		  FROM (
+    			SELECT e.*, d.department_name,
+        		ROW_NUMBER() OVER(ORDER BY e.employee_id DESC) AS RNUM
+    			FROM employees e
+    			JOIN departments d
+    			ON e.department_id = d.department_id
+				) emp
+		WHERE RNUM BETWEEN #{rowStart} AND #{rowEnd}
+		ORDER BY employee_id DESC;
 	</select>
 	
-	<select id="countEmployee" parameterType="Pagination" resultType="Integer">
-		SELECT		COUNT(*) AS count
-		FROM		employees e
-		LEFT JOIN	departments d
-		ON e.department_id = d.department_id
-		<if test="search != null and search.hl != null">	
-			<where>
-    			<choose>
-      				<when test="search.hl == 1">
-        				AND hire_date like CONCAT('%',#{search.searchbox},'%')
-      				</when>
-      				<when test="search.hl == 2">
-        				AND (hire_date like CONCAT('%',#{search.searchbox},'%') OR leave_date like CONCAT('%',#{search.searchbox},'%'))
-      				</when>
-      				<when test="search.hl == 3">
-        				AND leave_date like CONCAT('%',#{search.searchbox},'%')
-      				</when>  
-    			</choose>
-    		</where>			
+	<select id="listCount" resultMap="employeeResultMap">
+		<![CDATA[
+			SELECT		COUNT(employee_id)
+			FROM		employees e
+			LEFT JOIN	departments d
+			ON e.department_id = d.department_id
+			where employee_id > 0
+		]]>	
+	</select>
+	
+	<sql id="search">
+		<if test="searchType != null">
+			<if test="searchType == 'h'.toString()">AND HIRE_DATE LIKE '%' || #{keyword} || '%'</if>
+			<if test="searchType == 'l'.toString()">AND LEAVE_DATE LIKE '%' || #{keyword} || '%'</if>
+			<if test="searchType == 'hl'.toString()">AND (HIRE_DATE LIKE '%' || #{keyword} || '%') or (LEAVE_DATE LIKE '%' || #{keyword} || '%')</if>
 		</if>
-	</select>
+	</sql>
 		
 	<select id="read" parameterType="int" resultType="kr.co.vo.Employee">
 		SELECT		EMPLOYEE_ID
@@ -101,15 +108,6 @@
 			WHERE EMPLOYEE_ID = #{EMPLOYEE_ID}
 	</select>
 	
-	<select id="beforeUpdate" parameterType="int" resultMap="employeeResultMap">
-		SELECT 		e.*, d.department_name
-		FROM 		employees e
-		JOIN 		departments d
-		ON 			e.department_id = d.department_id
-		
-		WHERE employee_id = #{employee_id}
-	</select>
-
 	<update id="update" parameterType="kr.co.vo.Employee">
 		UPDATE		employees
 		SET			NAME	=	#{name},
@@ -141,11 +139,5 @@
 			AND EMPLOYEE_ID > 0
 	</select>
 
-	<sql id="search">
-		<if test="searchType != null">
-			<if test="searchType == 'h'.toString()">AND HIRE_DATE LIKE '%' || #{keyword} || '%'</if>
-			<if test="searchType == 'l'.toString()">AND LEAVE_DATE LIKE '%' || #{keyword} || '%'</if>
-			<if test="searchType == 'hl'.toString()">AND (HIRE_DATE LIKE '%' || #{keyword} || '%') or (LEAVE_DATE LIKE '%' || #{keyword} || '%')</if>
-		</if>
-	</sql>
+	
 </mapper>

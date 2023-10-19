@@ -87,19 +87,24 @@
 				
 	<nav aria-label="Page navigation example">
   		<ul class="pagination justify-content-center">
-    		<li class="page-item">
-      			<a class="page-link" href="#" aria-label="Previous">
-        			<span aria-hidden="true">&laquo;</span>
-     			</a>
-    		</li>
-    		<li class="page-item"><a class="page-link" href="#">1</a></li>
-    		<li class="page-item"><a class="page-link" href="#">2</a></li>
-    		<li class="page-item"><a class="page-link" href="#">3</a></li>
-    		<li class="page-item">
-      			<a class="page-link" href="#" aria-label="Next">
-        			<span aria-hidden="true">&raquo;</span>
-      			</a>
-    		</li>
+    		<c:if test="${pageMaker.prev}">
+    			<li class="page-item">
+      				<a class="page-link" href="list${pageMaker.makeQuery(pageMaker.startPage - 1}" aria-label="Previous">
+        				<span aria-hidden="true">&laquo;</span>
+     				</a>
+    			</li>
+    		</c:if>
+    		<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+    			<li class="page-item"><a class="page-link" href="list${pageMaker.makeQuery(idx)}">${idx}</a></li>
+    		</c:forEach>
+    		
+    		<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+    			<li class="page-item">
+      				<a class="page-link" href="list${pageMaker.makeQuery(pageMaker.endPage + 1)}" aria-label="Next">
+        				<span aria-hidden="true">&raquo;</span>
+      				</a>
+    			</li>
+    		</c:if>
   		</ul>
 	</nav>
 	

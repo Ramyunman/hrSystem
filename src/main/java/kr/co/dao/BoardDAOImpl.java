@@ -9,7 +9,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import kr.co.vo.Employee;
-import kr.co.vo.Pagination;
+import kr.co.vo.Criteria;
+import kr.co.vo.SearchCriteria;
 
 
 @Repository
@@ -26,10 +27,15 @@ public class BoardDAOImpl implements BoardDAO {
 	
 	// 직원 목록 조회
 	@Override
-	public List<Employee> list() throws Exception {
-		return sqlSession.selectList("boardMapper.list");
+	public List<Employee> list(Criteria cri) throws Exception {
+		return sqlSession.selectList("boardMapper.listPage", cri);
 	}
 	
+	// 직원 총 인원수
+	@Override
+	public int listCount() throws Exception {
+		return sqlSession.selectOne("boardMapper.listCount");
+	}
 	// 직원 정보 조회
 	@Override
 	public Employee read(int employee_id) throws Exception {
@@ -48,10 +54,8 @@ public class BoardDAOImpl implements BoardDAO {
 		sqlSession.delete("boardMapper.delete", employee_id);
 	}
 	
-	// 총 직원 수
-	public int countEmployee(Pagination pagination) throws Exception {
-		return sqlSession.selectOne("boardMapper.countEmployee", pagination);
-	}
+	
+		
 	
 
 }
