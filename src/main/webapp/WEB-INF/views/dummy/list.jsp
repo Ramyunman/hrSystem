@@ -31,23 +31,39 @@
     		<div class="col">
       			1 of 3
     		</div>
-    		<div class="col-6" style="display: flex; flex-direction: row;">
+    		
+    		<div class="col-6 search" style="display: flex; flex-direction: row;">
+     		 	
      		 	<div class="form-check form-check-inline">
-  					<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="hl">
-  					<label class="form-check-label" for="inlineRadio1">전체</label>
+    				<input class="form-check-input" type="radio" name="searchType" id="inlineRadio1" value="hl" ${scri.searchType == 'hl' ? 'checked' : ''}>
+    				<label class="form-check-label" for="inlineRadio1">전체</label>
 				</div>
 				<div class="form-check form-check-inline">
-  					<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="h">
-  					<label class="form-check-label" for="inlineRadio2">근무자</label>
+    				<input class="form-check-input" type="radio" name="searchType" id="inlineRadio2" value="h" ${scri.searchType == 'h' ? 'checked' : ''}>
+    				<label class="form-check-label" for="inlineRadio2">근무자</label>
 				</div>
 				<div class="form-check form-check-inline">
-  					<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="l">
-  					<label class="form-check-label" for="inlineRadio3">퇴사자</label>
+    				<input class="form-check-input" type="radio" name="searchType" id="inlineRadio3" value="l" ${scri.searchType == 'l' ? 'checked' : ''}>
+    				<label class="form-check-label" for="inlineRadio3">퇴사자</label>
 				</div>
-			
+
 				<form class="form-inline my-2 my-lg-0">
-      				<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      				<input class="form-control mr-sm-2" type="text" name="keyword" id="keywordInput" value="${scri.keyword}" placeholder="Search" aria-label="Search">
+      				<button class="btn btn-outline-success my-2 my-sm-0" id="searchBtn" type="button">검색</button>
+      				<script>
+    					$(function() {
+        					$('#searchBtn').click(function() { // 'clilck' 대신 'click' 사용
+            				// URL 조립
+           					 var url = "list" + '${pageMaker.makeQuery(1)}' +
+                				"&searchType=" + $("input[name='searchType']:checked").val() + // 라디오 버튼 선택 값 가져오기
+                				"&keyword=" + encodeURIComponent($('#keywordInput').val());
+
+            				// 검색 결과 페이지로 이동
+            				window.location.href = url;
+        				});
+    				});
+</script>
+
     			</form>	
     		</div>
     		<div class="col">
@@ -101,7 +117,7 @@
   				<!-- 이전 페이지 버튼 표시  -->
     			<c:if test="${pageMaker.prev}">
     				<li class="page-item">
-    					<a class="page-link" href="list${pageMaker.makeQuery(pageMaker.startPage - 1)}" aria-label="Previous">
+    					<a class="page-link" href="list${pageMaker.makeSearch(pageMaker.startPage - 1)}" aria-label="Previous">
         					<span aria-hidden="true">&laquo;</span>
         				</a>
         			</li>
@@ -109,13 +125,13 @@
     		
     			<!-- 페이지 번호 버튼 표시 -->
     			<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
-	    			<li class="page-item"><a class="page-link" href="list${pageMaker.makeQuery(idx)}">${idx}</a></li>
+	    			<li class="page-item"><a class="page-link" href="list${pageMaker.makeSearch(idx)}">${idx}</a></li>
     			</c:forEach>
     		
     			<!-- 다음 페이지 버튼 표시 -->
     			<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
     				<li class="page-item">
-      					<a class="page-link" href="list${pageMaker.makeQuery(pageMaker.endPage + 1)}" aria-label="Next">
+      					<a class="page-link" href="list${pageMaker.makeSearch(pageMaker.endPage + 1)}" aria-label="Next">
         					<span aria-hidden="true">&raquo;</span>
       					</a>
     				</li>
