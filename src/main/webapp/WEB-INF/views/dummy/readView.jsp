@@ -34,10 +34,6 @@
 			}
 		})
 		
-		// 취소
-		$(".list_btn").on("click", function() {
-			location.href = "/dummy/list";
-		})
 	})
 	
 </script>
@@ -77,10 +73,14 @@
   						<input type="text" class="form-control" id="hire_date" name="hire_date" value="${read.hire_date}" readonly="readonly">
 					</div>
     				<div class="form-group col-md-4">
-	      				<label for="department_id">부서명</label>
-      					<select id="inputDepatment" class="form-control" name="department_id" value="${read.department.department_name}" readonly="readonly">
-        					<option selected>Choose...</option>
-        					<option>60</option>
+      					<label for="department_id">부서명</label>
+      					<select id="inputDepatment" class="form-control" name="department_id" disabled>
+        					<option value="10">관리부</option>
+        					<option value="20">영업부</option>
+        					<option value="30">구매부</option>
+        					<option value="40">인사부</option>
+        					<option value="50">배송부</option>
+        					<option value="60">IT사업부</option>
 	      				</select>
     				</div>
     				<div class="form-group col-md-4">
@@ -91,9 +91,11 @@
   				<div class="form-row">
 	    			<div class="form-group col-md-4">
       					<label for="bank_id">급여은행</label>
-	      				<select id="inputBank" class="form-control" name="bank_id" value="${read.bank_id}" readonly="readonly">
-        					<option selected>Choose...</option>
-        					<option>12</option>
+      					<select id="inputBank" class="form-control" name="bank_id" disabled>
+        					<option value="10">국민은행</option>
+        					<option value="11">기업은행</option>
+        					<option value="12">우리은행</option>
+        					<option value="13">농협은행</option>
 	      				</select>
     				</div>
     				<div class="form-group col-md-8">
@@ -112,7 +114,7 @@
 	  		
   				<button type="submit" class="btn btn-dark update_btn">수정</button>
   				<button type="submit" class="btn btn-dark delete_btn">삭제</button>
-  				<button type="submit" class="btn btn-dark list_btn">목록</button>
+  				
 	
 		
 		</section>

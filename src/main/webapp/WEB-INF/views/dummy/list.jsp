@@ -27,23 +27,23 @@
   	</ul>
   	
   	<nav class="navbar bg-body-tertiary">
-  		<div class="container-fluid">
+  		<div class="container-fluid search">
     		<div class="form-check form-check-inline">
-  				<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+  				<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="hl">
   				<label class="form-check-label" for="inlineRadio1">전체</label>
 			</div>
 			<div class="form-check form-check-inline">
-  				<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+  				<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="h">
   				<label class="form-check-label" for="inlineRadio2">근무자</label>
 			</div>
 			<div class="form-check form-check-inline">
-  				<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+  				<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="l">
   				<label class="form-check-label" for="inlineRadio3">퇴사자</label>
 			</div>
-  			<form class="form-inline">
-    			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    			<i class="fas fa-search" aria-hidden="true"></i>
-  			</form>
+  			<form class="form-inline my-2 my-lg-0">
+      			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    		</form>
   		</div>
 	</nav>
 	
@@ -83,8 +83,10 @@
   		</tbody>
 	</table>
 	
+	
+				
 	<nav aria-label="Page navigation example">
-  		<ul class="pagination">
+  		<ul class="pagination justify-content-center">
     		<li class="page-item">
       			<a class="page-link" href="#" aria-label="Previous">
         			<span aria-hidden="true">&laquo;</span>

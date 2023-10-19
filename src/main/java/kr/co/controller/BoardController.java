@@ -55,14 +55,6 @@ public class BoardController {
 		return "/board/readView";
 	}
 	
-	// 직원 정보 수정뷰
-	@RequestMapping(value = "/beforeUpdate/{employee_id}", method = RequestMethod.GET)
-	public String beforeUpdate(@PathVariable("employee_id") int employee_id, Model model) throws Exception {
-		logger.info("beforeUpdate");
-		model.addAttribute("beforeUpdate", service.beforeUpdate(employee_id));
-		return "/board/beforeUpdate";
-	}
-
 	// 직원 정보 수정
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String update(Employee employee) throws Exception {

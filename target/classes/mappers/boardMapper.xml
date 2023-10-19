@@ -110,4 +110,20 @@
 		
 		WHERE	EMPLOYEE_ID	= #{employee_id}
 	</delete>
+	
+	<select id="listCount" parameterType="kr.co.vo.SearchCriteria" resultType="int">
+		SELECT COUNT(EMPLOYEE_ID)
+			FROM EMPLOYEES
+			WHERE 1=1
+		<include refid="search"></include>
+			AND EMPLOYEE_ID > 0
+	</select>
+
+	<sql id="search">
+		<if test="searchType != null">
+			<if test="searchType == 'h'.toString()">AND HIRE_DATE LIKE '%' || #{keyword} || '%'</if>
+			<if test="searchType == 'l'.toString()">AND LEAVE_DATE LIKE '%' || #{keyword} || '%'</if>
+			<if test="searchType == 'hl'.toString()">AND (HIRE_DATE LIKE '%' || #{keyword} || '%') or (LEAVE_DATE LIKE '%' || #{keyword} || '%')</if>
+		</if>
+	</sql>
 </mapper>

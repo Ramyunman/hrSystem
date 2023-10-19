@@ -2,12 +2,15 @@ package kr.co.dao;
 
 import java.util.List;
 
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import kr.co.vo.Employee;
+import kr.co.vo.Criteria;
+import kr.co.vo.SearchCriteria;
 
 @Repository
 public class BoardDAOImpl implements BoardDAO {
@@ -33,11 +36,6 @@ public class BoardDAOImpl implements BoardDAO {
 		return sqlSession.selectOne("boardMapper.read", employee_id);
 	}
 	
-	// 직원 정보 수정 전
-	@Override
-	public Employee beforeUpdate(int employee_id) throws Exception {
-		return sqlSession.selectOne("boardMapper.beforeUpdate", employee_id);
-	}
 	// 직원 수정
 	@Override
 	public void update(Employee employee) throws Exception {
@@ -48,6 +46,12 @@ public class BoardDAOImpl implements BoardDAO {
 	@Override
 	public void delete(int employee_id) throws Exception {
 		sqlSession.delete("boardMapper.delete", employee_id);
+	}
+	
+	// 총 직원 수
+	@Override
+	public int listCount(SearchCriteria scri) throws Exception {
+		return sqlSession.selectOne("boardMapper.listCount", scri);
 	}
 
 }

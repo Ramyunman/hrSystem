@@ -67,9 +67,13 @@
 					</div>
     				<div class="form-group col-md-4">
       					<label for="department_id">부서명</label>
-      					<select id="inputDepatment" class="form-control" name="department_id" value="${update.department_id}">
-        					<option selected>Choose...</option>
-        					<option>60</option>
+      					<select id="inputDepatment" class="form-control" name="department_id">
+        					<option value="10">관리부</option>
+        					<option value="20">영업부</option>
+        					<option value="30">구매부</option>
+        					<option value="40">인사부</option>
+        					<option value="50">배송부</option>
+        					<option value="60">IT사업부</option>
 	      				</select>
     				</div>
     				<div class="form-group col-md-4">
@@ -80,9 +84,11 @@
   				<div class="form-row">
     				<div class="form-group col-md-4">
       					<label for="bank_id">급여은행</label>
-      					<select id="inputBank" class="form-control" name="bank_id" value="${update.bank_id}">
-        					<option selected>Choose...</option>
-        					<option>12</option>
+      					<select id="inputBank" class="form-control" name="bank_id">
+        					<option value="10">국민은행</option>
+        					<option value="11">기업은행</option>
+        					<option value="12">우리은행</option>
+        					<option value="13">농협은행</option>
 	      				</select>
     				</div>
     				<div class="form-group col-md-8">

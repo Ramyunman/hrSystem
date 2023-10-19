@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import kr.co.vo.Employee;
+import kr.co.vo.SearchCriteria;
 import kr.co.dao.BoardDAO;
 
 @Service
@@ -33,12 +34,6 @@ public class BoardServiceImpl implements BoardService {
 		return dao.read(employee_id);
 	}
 	
-	// 직원 정보 수정 전
-	@Override
-	public Employee beforeUpdate(int employee_id) throws Exception {
-		return dao.beforeUpdate(employee_id);
-	}
-		
 	// 직원 수정
 	@Override
 	public void update(Employee employee) throws Exception {
@@ -49,5 +44,11 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public void delete(int employee_id) throws Exception {
 		dao.delete(employee_id);
+	}
+	
+	// 총 직원 수
+	@Override
+	public int listCount(SearchCriteria scri) throws Exception {
+		return dao.listCount(scri);
 	}
 }

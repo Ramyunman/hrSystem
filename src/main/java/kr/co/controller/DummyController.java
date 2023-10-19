@@ -81,7 +81,7 @@ public class DummyController {
 		return "redirect:/dummy/list";
 	}
 	
-	// 직원 정보 삭제
+	// 직원 삭제
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
 	public String delete(Employee employee) throws Exception {
 		logger.info("delete");
