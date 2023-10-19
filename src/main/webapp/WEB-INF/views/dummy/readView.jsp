@@ -42,13 +42,15 @@
 		<header>
 			<h1>인사관리 시스템</h1>
 		</header>
-	
+		
+		<hr>
 		<ul class="nav">
   			<li class="nav-item">
     			<a class="nav-link active" href="/dummy/list">사원목록</a>
   			</li>
   		</ul>
-  	
+  		<hr>
+  		
   		<section id="container">
   			<form name="readForm" role="form" method="post">
   				<input type="hidden" id="employee_id" name="employee_id" value="${read.employee_id}">

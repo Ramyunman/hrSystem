@@ -18,11 +18,13 @@
 		<h1>인사관리 시스템</h1>
 	</header>
 	
+	<hr>
 	<ul class="nav">
   		<li class="nav-item">
     		<a class="nav-link active" href="list">사원목록</a>
   		</li>
   	</ul>
+  	<hr>
   	
   	<section id="container">
   		<form name="createForm" method="post" action="/dummy/create">

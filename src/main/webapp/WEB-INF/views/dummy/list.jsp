@@ -21,11 +21,14 @@
 <div class="container">
 	<h1>인사관리 시스템</h1>
 
+	<hr>
 	<ul class="nav">
   		<li class="nav-item">
     		<a class="nav-link active" href="list">사원목록</a>
   		</li>
   	</ul>
+  	<hr>
+  	
   	<div class="container">
   		<div class="row">
     		<div class="col"></div>
@@ -57,8 +60,8 @@
 
             				// 검색 결과 페이지로 이동
             				window.location.href = url;
-        				});
-    				});
+        					});
+    					});
 					</script>
     			</form>	
     		</div>
@@ -67,7 +70,7 @@
 	</div>
   	
     
-	<form role="form" method="get">
+	<form role="form" name="listForm">
 		<table class="table table-striped">
   			<thead class="table-dark">
     			<tr>
@@ -143,7 +146,26 @@
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
-
+<!--  
+<script type="text/javascript">
+	$(document).ready(function() {
+		var formObj = $("form[name='ajaxForm']");
+		
+		// 삭제
+		$(".delete_btn").on("click", function() {
+			
+			var deleteYN = confirm("삭제하시겠습니까?");
+			if(deleteYN == true) {
+				
+				formObj.attr("action", "/dummy/delete");
+				formObj.attr("method", "post");
+				formObj.submit();
+			}
+		})
+		
+	})
+</script>
+-->
 </html>
 	
 </body>

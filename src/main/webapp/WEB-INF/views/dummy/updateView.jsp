@@ -37,12 +37,14 @@
 			<h1>인사관리 시스템</h1>
 		</header>
 	
+		<hr>
 		<ul class="nav">
   			<li class="nav-item">
     			<a class="nav-link active" href="/dummy/list">사원목록</a>
   			</li>
   		</ul>
-  	
+  		<hr>
+  		
   		<section id="container">
 	  		<form name="updateForm" role="form" method="post" action="/dummy/update">
   				<input type="hidden" name="employee_id" value="${update.employee_id}" readonly="readonly">
