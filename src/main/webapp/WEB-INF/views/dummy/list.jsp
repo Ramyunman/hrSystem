@@ -28,10 +28,7 @@
   	</ul>
   	<div class="container">
   		<div class="row">
-    		<div class="col">
-      			1 of 3
-    		</div>
-    		
+    		<div class="col"></div>
     		<div class="col-6 search" style="display: flex; flex-direction: row;">
      		 	
      		 	<div class="form-check form-check-inline">
@@ -39,11 +36,11 @@
     				<label class="form-check-label" for="inlineRadio1">전체</label>
 				</div>
 				<div class="form-check form-check-inline">
-    				<input class="form-check-input" type="radio" name="searchType" id="inlineRadio2" value="h" ${scri.searchType == 'h' ? 'checked' : ''}>
+    				<input class="form-check-input" type="radio" name="searchType" id="inlineRadio2" value="working" ${scri.searchType == 'working' ? 'checked' : ''}>
     				<label class="form-check-label" for="inlineRadio2">근무자</label>
 				</div>
 				<div class="form-check form-check-inline">
-    				<input class="form-check-input" type="radio" name="searchType" id="inlineRadio3" value="l" ${scri.searchType == 'l' ? 'checked' : ''}>
+    				<input class="form-check-input" type="radio" name="searchType" id="inlineRadio3" value="left" ${scri.searchType == 'left' ? 'checked' : ''}>
     				<label class="form-check-label" for="inlineRadio3">퇴사자</label>
 				</div>
 
@@ -52,7 +49,7 @@
       				<button class="btn btn-outline-success my-2 my-sm-0" id="searchBtn" type="button">검색</button>
       				<script>
     					$(function() {
-        					$('#searchBtn').click(function() { // 'clilck' 대신 'click' 사용
+        					$('#searchBtn').click(function() { 
             				// URL 조립
            					 var url = "list" + '${pageMaker.makeQuery(1)}' +
                 				"&searchType=" + $("input[name='searchType']:checked").val() + // 라디오 버튼 선택 값 가져오기
@@ -62,13 +59,10 @@
             				window.location.href = url;
         				});
     				});
-</script>
-
+					</script>
     			</form>	
     		</div>
-    		<div class="col">
-      			3 of 3
-    		</div>
+    		<div class="col"></div>
   		</div>
 	</div>
   	
