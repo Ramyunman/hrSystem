@@ -35,7 +35,7 @@
     		<div class="col-6 search" style="display: flex; flex-direction: row;">
      		 	
      		 	<div class="form-check form-check-inline">
-    				<input class="form-check-input" type="radio" name="searchType" id="inlineRadio1" value="hl" ${scri.searchType == 'hl' ? 'checked' : ''}>
+    				<input class="form-check-input" type="radio" name="searchType" id="inlineRadio1" value="all" ${scri.searchType == 'null' ? 'checked' : ''}>
     				<label class="form-check-label" for="inlineRadio1">전체</label>
 				</div>
 				<div class="form-check form-check-inline">
