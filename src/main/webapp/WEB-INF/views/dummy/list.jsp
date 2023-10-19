@@ -47,6 +47,7 @@
   		</div>
 	</nav>
 	
+	<form role="form" method="get">
 	<table class="table table-striped">
   		<thead class="table-dark">
     		<tr>
@@ -89,7 +90,7 @@
   		<ul class="pagination justify-content-center">
     		<c:if test="${pageMaker.prev}">
     			<li class="page-item">
-      				<a class="page-link" href="list${pageMaker.makeQuery(pageMaker.startPage - 1}" aria-label="Previous">
+      				<a class="page-link" href="list${pageMaker.makeQuery(pageMaker.startPage - 1)}" aria-label="Previous">
         				<span aria-hidden="true">&laquo;</span>
      				</a>
     			</li>
@@ -107,6 +108,7 @@
     		</c:if>
   		</ul>
 	</nav>
+	</form>
 	
 	<div class="d-grid gap-2 d-md-block">
   		<button class="btn btn-dark create_btn" type="button" onclick="window.location.href='createView'">추가</button>

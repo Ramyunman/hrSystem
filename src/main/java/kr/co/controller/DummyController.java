@@ -50,6 +50,7 @@ public class DummyController {
 		
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
+		System.out.println(service.listCount());
 		pageMaker.setTotalCount(service.listCount());
 		
 		model.addAttribute("pageMaker", pageMaker);
