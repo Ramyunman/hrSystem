@@ -9,10 +9,11 @@
 	<title>직원 목록창</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-
-	<style>
 	
+	<style>
+	.table-striped {
+		margin-top: 20px;
+	}
 	</style>
 </head>
 <body>
@@ -25,93 +26,102 @@
     		<a class="nav-link active" href="list">사원목록</a>
   		</li>
   	</ul>
-  	
-  	<nav class="navbar bg-body-tertiary">
-  		<div class="container-fluid search">
-    		<div class="form-check form-check-inline">
-  				<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="hl">
-  				<label class="form-check-label" for="inlineRadio1">전체</label>
-			</div>
-			<div class="form-check form-check-inline">
-  				<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="h">
-  				<label class="form-check-label" for="inlineRadio2">근무자</label>
-			</div>
-			<div class="form-check form-check-inline">
-  				<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="l">
-  				<label class="form-check-label" for="inlineRadio3">퇴사자</label>
-			</div>
-  			<form class="form-inline my-2 my-lg-0">
-      			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    		</form>
+  	<div class="container">
+  		<div class="row">
+    		<div class="col">
+      			1 of 3
+    		</div>
+    		<div class="col-6" style="display: flex; flex-direction: row;">
+     		 	<div class="form-check form-check-inline">
+  					<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="hl">
+  					<label class="form-check-label" for="inlineRadio1">전체</label>
+				</div>
+				<div class="form-check form-check-inline">
+  					<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="h">
+  					<label class="form-check-label" for="inlineRadio2">근무자</label>
+				</div>
+				<div class="form-check form-check-inline">
+  					<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="l">
+  					<label class="form-check-label" for="inlineRadio3">퇴사자</label>
+				</div>
+			
+				<form class="form-inline my-2 my-lg-0">
+      				<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    			</form>	
+    		</div>
+    		<div class="col">
+      			3 of 3
+    		</div>
   		</div>
-	</nav>
-	
+	</div>
+  	
+    
 	<form role="form" method="get">
-	<table class="table table-striped">
-  		<thead class="table-dark">
-    		<tr>
-      			<th scope="col">선택</th>
-      			<th scope="col">사원번호</th>
-      			<th scope="col">성명</th>
-      			<th scope="col">주민번호</th>
-      			<th scope="col">부서명</th>
-      			<th scope="col">직위</th>
-      			<th scope="col">입사일</th>
-      			<th scope="col">퇴사일</th>
-      			<th scope="col">Email</th>
-    		</tr>
-  		</thead>
-  		<tbody>
-  			<c:forEach items="${list}" var="list">
+		<table class="table table-striped">
+  			<thead class="table-dark">
     			<tr>
-      				<td>
-            			<input type="checkbox" class="checkbox-class" name="selectedItems" value="${item.itemId}">
-            		</td>
-      				<td>
-      					<a href="/dummy/readView?employee_id=${list.employee_id}"><c:out value ="${list.employee_id}"/></a>
-      				</td>
-
-      				<td><c:out value="${list.name}"/></td>
-      				<td><c:out value="${list.reg_no}"/></td>
-      				<td><c:out value="${list.department.department_name}"/></td>
-      				<td>과장</td>
-      				<td><c:out value="${list.hire_date}"/></td>
-      				<td><c:out value="${list.leave_date}"/></td>
-      				<td><c:out value="${list.email}"/></td>
+      				<th scope="col">선택</th>
+      				<th scope="col">사원번호</th>
+      				<th scope="col">성명</th>
+      				<th scope="col">주민번호</th>
+    	  			<th scope="col">부서명</th>
+	      			<th scope="col">직위</th>
+      				<th scope="col">입사일</th>
+      				<th scope="col">퇴사일</th>
+      				<th scope="col">Email</th>
     			</tr>
-    		</c:forEach>
-  		</tbody>
-	</table>
+  			</thead>
+  			<tbody>
+  				<c:forEach items="${list}" var="list">
+    				<tr>
+      					<td>
+            				<input type="checkbox" class="checkbox-class" name="selectedItems" value="${item.itemId}">
+            			</td>
+      					<td>
+    	  					<a href="/dummy/readView?employee_id=${list.employee_id}"><c:out value ="${list.employee_id}"/></a>
+	      				</td>
+
+      					<td><c:out value="${list.name}"/></td>
+      					<td><c:out value="${list.reg_no}"/></td>
+      					<td><c:out value="${list.department.department_name}"/></td>
+      					<td>과장</td>
+      					<td><c:out value="${list.hire_date}"/></td>
+      					<td><c:out value="${list.leave_date}"/></td>
+      					<td><c:out value="${list.email}"/></td>
+    				</tr>
+    			</c:forEach>
+  			</tbody>
+		</table>
 	
 	
 				
-	<nav aria-label="Page navigation example">
-  		<ul class="pagination justify-content-center">
-  			<!-- 이전 페이지 버튼 표시  -->
-    		<c:if test="${pageMaker.prev}">
-    			<li class="page-item">
-    				<a class="page-link" href="list${pageMaker.makeQuery(pageMaker.startPage - 1)}" aria-label="Previous">
-        				<span aria-hidden="true">&laquo;</span>
-        			</a>
-        		</li>
-    		</c:if>
+		<nav aria-label="Page navigation example">
+  			<ul class="pagination justify-content-center">
+  				<!-- 이전 페이지 버튼 표시  -->
+    			<c:if test="${pageMaker.prev}">
+    				<li class="page-item">
+    					<a class="page-link" href="list${pageMaker.makeQuery(pageMaker.startPage - 1)}" aria-label="Previous">
+        					<span aria-hidden="true">&laquo;</span>
+        				</a>
+        			</li>
+    			</c:if>
     		
-    		<!-- 페이지 번호 버튼 표시 -->
-    		<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
-    			<li class="page-item"><a class="page-link" href="list${pageMaker.makeQuery(idx)}">${idx}</a></li>
-    		</c:forEach>
+    			<!-- 페이지 번호 버튼 표시 -->
+    			<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+	    			<li class="page-item"><a class="page-link" href="list${pageMaker.makeQuery(idx)}">${idx}</a></li>
+    			</c:forEach>
     		
-    		<!-- 다음 페이지 버튼 표시 -->
-    		<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-    			<li class="page-item">
-      				<a class="page-link" href="list${pageMaker.makeQuery(pageMaker.endPage + 1)}" aria-label="Next">
-        				<span aria-hidden="true">&raquo;</span>
-      				</a>
-    			</li>
-    		</c:if>
-  		</ul>
-	</nav>
+    			<!-- 다음 페이지 버튼 표시 -->
+    			<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+    				<li class="page-item">
+      					<a class="page-link" href="list${pageMaker.makeQuery(pageMaker.endPage + 1)}" aria-label="Next">
+        					<span aria-hidden="true">&raquo;</span>
+      					</a>
+    				</li>
+    			</c:if>
+  			</ul>
+		</nav>
 	</form>
 	
 	<div class="d-grid gap-2 d-md-block">

@@ -27,14 +27,14 @@ public class BoardDAOImpl implements BoardDAO {
 	
 	// 직원 목록 조회
 	@Override
-	public List<Employee> list(Criteria cri) throws Exception {
-		return sqlSession.selectList("boardMapper.listPage", cri);
+	public List<Employee> list(SearchCriteria scri) throws Exception {
+		return sqlSession.selectList("boardMapper.listPage", scri);
 	}
 	
 	// 직원 총 인원수
 	@Override
-	public int listCount() throws Exception {
-		return sqlSession.selectOne("boardMapper.listCount");
+	public int listCount(SearchCriteria scri) throws Exception {
+		return sqlSession.selectOne("boardMapper.listCount", scri);
 	}
 	// 직원 정보 조회
 	@Override

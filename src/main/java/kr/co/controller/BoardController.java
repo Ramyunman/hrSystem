@@ -38,13 +38,13 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 	
-	// 직원 목록 조회
-	@RequestMapping(value ="/list", method = RequestMethod.GET)
-	public String list(Model model, Criteria cri) throws Exception {
-		logger.info("list");
-		model.addAttribute("list", service.list(cri));
-		return "board/list";
-	}
+//	// 직원 목록 조회
+//	@RequestMapping(value ="/list", method = RequestMethod.GET)
+//	public String list(Model model, Criteria cri) throws Exception {
+//		logger.info("list");
+//		model.addAttribute("list", service.list(cri));
+//		return "board/list";
+//	}
 	
 	// 직원 정보 조회
 	@RequestMapping(value = "/readView/{employee_id}", method = RequestMethod.GET)

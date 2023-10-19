@@ -50,7 +50,7 @@
 		<result property="department_name" column="department_name" />
 	</resultMap>
 		
-	<select id="listPage" parameterType="kr.co.vo.Criteria" resultMap="employeeResultMap">
+	<select id="listPage" resultType="kr.co.vo.Employee" parameterType="kr.co.vo.SearchCriteria" resultMap="employeeResultMap">
 		SELECT 		EMPLOYEE_ID,
 					NAME,
 					EMAIL,
@@ -69,17 +69,18 @@
     			FROM employees e
     			JOIN departments d
     			ON e.department_id = d.department_id
+    			<include refid="search"></include>
 				) emp
 		WHERE RNUM BETWEEN #{rowStart} AND #{rowEnd}
 		ORDER BY employee_id DESC
 	</select>
 	
-	<select id="listCount" resultType="int">
-		<![CDATA[
-			SELECT		COUNT(employee_id)
-			FROM		employees 
-			where 		employee_id > 0
-		]]>	
+	<select id="listCount" parameterType="kr.co.vo.SearchCriteria" resultType="int">
+		SELECT		COUNT(employee_id)
+		FROM		employees 
+		WHERE 		1=1
+		<include refid="search"></include>
+		AND 		employee_id > 0
 	</select>
 	
 	<sql id="search">

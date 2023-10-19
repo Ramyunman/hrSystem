@@ -14,10 +14,10 @@ public interface BoardService {
 	public void create(Employee employee) throws Exception;
 	
 	// 직원 목록 조회
-	public List<Employee> list(Criteria cri) throws Exception;
+	public List<Employee> list(SearchCriteria scri) throws Exception;
 	
 	// 직원 총 인원수
-	public int listCount() throws Exception;
+	public int listCount(SearchCriteria scri) throws Exception;
 	
 	// 직원 정보 조회
 	public Employee read(int employee_id) throws Exception;
