@@ -1,8 +1,8 @@
 package kr.co.dao;
 
 import kr.co.vo.Employee;
-import kr.co.vo.Criteria;
-import kr.co.vo.SearchCriteria;
+import kr.co.vo.Pagination;
+
 
 import java.util.List;
 
@@ -24,6 +24,7 @@ public interface BoardDAO {
 	public void delete(int employee_id) throws Exception;
 	
 	// 총 직원 수
-	public int listCount(SearchCriteria scri) throws Exception;
+	public int countEmployee(Pagination pagination) throws Exception;
+	
 
 }

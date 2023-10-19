@@ -9,8 +9,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import kr.co.vo.Employee;
-import kr.co.vo.Criteria;
-import kr.co.vo.SearchCriteria;
+import kr.co.vo.Pagination;
+
 
 @Repository
 public class BoardDAOImpl implements BoardDAO {
@@ -49,9 +49,9 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 	
 	// 총 직원 수
-	@Override
-	public int listCount(SearchCriteria scri) throws Exception {
-		return sqlSession.selectOne("boardMapper.listCount", scri);
+	public int countEmployee(Pagination pagination) throws Exception {
+		return sqlSession.selectOne("boardMapper.countEmployee", pagination);
 	}
+	
 
 }

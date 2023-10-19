@@ -62,6 +62,28 @@
 		ON e.department_id = d.department_id
 		ORDER BY employee_id DESC
 	</select>
+	
+	<select id="countEmployee" parameterType="Pagination" resultType="Integer">
+		SELECT		COUNT(*) AS count
+		FROM		employees e
+		LEFT JOIN	departments d
+		ON e.department_id = d.department_id
+		<if test="search != null and search.hl != null">	
+			<where>
+    			<choose>
+      				<when test="search.hl == 1">
+        				AND hire_date like CONCAT('%',#{search.searchbox},'%')
+      				</when>
+      				<when test="search.hl == 2">
+        				AND (hire_date like CONCAT('%',#{search.searchbox},'%') OR leave_date like CONCAT('%',#{search.searchbox},'%'))
+      				</when>
+      				<when test="search.hl == 3">
+        				AND leave_date like CONCAT('%',#{search.searchbox},'%')
+      				</when>  
+    			</choose>
+    		</where>			
+		</if>
+	</select>
 		
 	<select id="read" parameterType="int" resultType="kr.co.vo.Employee">
 		SELECT		EMPLOYEE_ID

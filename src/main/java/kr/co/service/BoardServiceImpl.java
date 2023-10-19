@@ -2,12 +2,12 @@ package kr.co.service;
 
 import java.util.List;
 
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
 import kr.co.vo.Employee;
-import kr.co.vo.SearchCriteria;
 import kr.co.dao.BoardDAO;
 
 @Service
@@ -46,9 +46,5 @@ public class BoardServiceImpl implements BoardService {
 		dao.delete(employee_id);
 	}
 	
-	// 총 직원 수
-	@Override
-	public int listCount(SearchCriteria scri) throws Exception {
-		return dao.listCount(scri);
-	}
+	
 }

@@ -3,7 +3,7 @@ package kr.co.service;
 import java.util.List;
 
 import kr.co.vo.Employee;
-import kr.co.vo.SearchCriteria;
+
 
 public interface BoardService {
 	
@@ -22,6 +22,5 @@ public interface BoardService {
 	// 직원 삭제
 	public void delete(int employee_id) throws Exception;
 	
-	// 총 직원 수
-	public int listCount(SearchCriteria scri) throws Exception;
+	
 }
