@@ -88,17 +88,21 @@
 				
 	<nav aria-label="Page navigation example">
   		<ul class="pagination justify-content-center">
+  			<!-- 이전 페이지 버튼 표시  -->
     		<c:if test="${pageMaker.prev}">
     			<li class="page-item">
-      				<a class="page-link" href="list${pageMaker.makeQuery(pageMaker.startPage - 1)}" aria-label="Previous">
+    				<a class="page-link" href="list${pageMaker.makeQuery(pageMaker.startPage - 1)}" aria-label="Previous">
         				<span aria-hidden="true">&laquo;</span>
-     				</a>
-    			</li>
+        			</a>
+        		</li>
     		</c:if>
+    		
+    		<!-- 페이지 번호 버튼 표시 -->
     		<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
     			<li class="page-item"><a class="page-link" href="list${pageMaker.makeQuery(idx)}">${idx}</a></li>
     		</c:forEach>
     		
+    		<!-- 다음 페이지 버튼 표시 -->
     		<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
     			<li class="page-item">
       				<a class="page-link" href="list${pageMaker.makeQuery(pageMaker.endPage + 1)}" aria-label="Next">
