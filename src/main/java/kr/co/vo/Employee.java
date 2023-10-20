@@ -42,6 +42,7 @@ public class Employee {
 	public void setPhone_number(String phone_number) {
 		this.phone_number = phone_number;
 	}
+	
 	public String getHire_date() {
 		return hire_date;
 	}

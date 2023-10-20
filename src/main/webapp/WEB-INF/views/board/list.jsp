@@ -8,12 +8,8 @@
 <meta charset="UTF-8">
 	<title>직원 목록창</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-
-	<style>
-	
-	</style>
 </head>
 <body>
 
@@ -73,7 +69,9 @@
       				<td><c:out value="${list.reg_no}"/></td>
       				<td><c:out value="${list.department.department_name}"/></td>
       				<td>과장</td>
-      				<td><c:out value="${list.hire_date}"/></td>
+      				<td>
+    					<fmt:formatDate value="${list.hire_date}" pattern="yyyy-MM-dd" />
+					</td>
       				<td><c:out value="${list.leave_date}"/></td>
       				<td><c:out value="${list.email}"/></td>
     			</tr>

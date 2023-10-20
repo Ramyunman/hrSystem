@@ -9,12 +9,13 @@
 	<title>직원 목록창</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	
-	<style>
-	.table-striped {
-		margin-top: 20px;
-	}
-	</style>
+	<link rel="stylesheet" href="js/bootstrap-datepicker.css"> <!-- 스타일 시트 경로를 확인하세요 -->
+    <script src="js/bootstrap-datepicker.js"></script>
+<style>
+.table-striped {
+	margin-top: 20px;
+}
+</style>
 </head>
 <body>
 
