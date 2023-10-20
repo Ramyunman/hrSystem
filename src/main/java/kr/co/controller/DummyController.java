@@ -1,7 +1,8 @@
 package kr.co.controller;
 
 import javax.inject.Inject;
-
+import java.util.List;
+import java.util.HashMap;
 import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Map;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -94,6 +95,23 @@ public class DummyController {
 		return "redirect:/dummy/list";
 	}
 	
-	
+	// ajax 연습
+	@RequestMapping(value = "/ajaxRequest", method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String, String> ajaxRequest(@RequestBody Employee employee) {
+	    logger.info("ajaxRequest");
+
+	    // 여기에서 받은 'employee' 객체를 사용하여 응답을 생성
+	    // 예를 들어, 'employee' 객체의 필드 값을 응답에 포함할 수 있습니다.
+	    int employeeId = employee.getEmployee_id();
+	    
+	    Map<String, String> response = new HashMap<>();
+	    response.put("message", "Hello from Server");
+	    response.put("employee_id", String.valueOf(employeeId));
+	    System.out.println(response);
+	    return response;
+	}
+
+
 	
 }

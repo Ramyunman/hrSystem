@@ -43,6 +43,7 @@
   		</div>
 	</nav>
 	
+	<form name="listForm" action="/submit" method="post">
 	<table class="table table-striped">
   		<thead class="table-dark">
     		<tr>
@@ -78,7 +79,7 @@
     		</c:forEach>
   		</tbody>
 	</table>
-	
+	</form>
 	<nav aria-label="Page navigation example">
   		<ul class="pagination">
     		<li class="page-item">

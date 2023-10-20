@@ -90,7 +90,7 @@
   				<c:forEach items="${list}" var="list">
     				<tr>
       					<td>
-            				<input type="checkbox" class="checkbox-class" name="selectedItems" value="${item.itemId}">
+            				<input type="checkbox" class="checkbox-class" id="employeeIdCheckbox" name="selectedItems" value="${item.itemId}">
             			</td>
       					<td>
     	  					<a href="/dummy/readView?employee_id=${list.employee_id}"><c:out value ="${list.employee_id}"/></a>
@@ -141,32 +141,51 @@
 	<div class="d-grid gap-2 d-md-block">
   		<button class="btn btn-dark create_btn" type="button" onclick="window.location.href='createView'">추가</button>
   		<button class="btn btn-dark delete_btn" type="button">삭제</button>
+  	<!-- <button id="ajaxButton">Send AJAX Request</button>	-->
 	</div>
 	
 </div>	
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
-<!--  
-<script type="text/javascript">
-	$(document).ready(function() {
-		var formObj = $("form[name='ajaxForm']");
-		
-		// 삭제
-		$(".delete_btn").on("click", function() {
-			
-			var deleteYN = confirm("삭제하시겠습니까?");
-			if(deleteYN == true) {
-				
-				formObj.attr("action", "/dummy/delete");
-				formObj.attr("method", "post");
-				formObj.submit();
-			}
-		})
-		
-	})
+	
+<script>
+$(document).ready(function() {
+    $("#ajaxButton").click(function() {
+    	var employeeId = $("#employeeIdCheckbox").val();
+    	
+    	var employee = {
+            employee_id: employeeId
+            // 다른 필드들...
+        };
+
+        var employeeJson = JSON.stringify(employee);
+
+        $.ajax({
+            url: "/dummy/ajaxRequest",
+            type: "POST",  // POST 메소드로 변경
+            data: employeeJson,  // JSON 데이터 전송
+            contentType: "application/json",  // JSON 데이터임을 명시
+            success: function(response) {
+                // 서버로부터의 응답을 처리
+                console.log("Response from server: " + response);
+            },
+            error: function(xhr, status, error) {
+                // 에러 처리
+                console.error("Error: " + error);
+            }
+        });
+    });
+});
+
+
 </script>
--->
+</body>
+  
+
+
+
+
+
 </html>
 	
 </body>
