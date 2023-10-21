@@ -101,8 +101,6 @@ public class DummyController {
 	public Map<String, String> ajaxRequest(@RequestBody Employee employee) {
 	    logger.info("ajaxRequest");
 
-	    // 여기에서 받은 'employee' 객체를 사용하여 응답을 생성
-	    // 예를 들어, 'employee' 객체의 필드 값을 응답에 포함할 수 있습니다.
 	    int employeeId = employee.getEmployee_id();
 	    
 	    Map<String, String> response = new HashMap<>();
