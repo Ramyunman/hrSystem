@@ -135,8 +135,7 @@
 	
 	<div class="d-grid gap-2 d-md-block">
   		<button class="btn btn-dark create_btn" type="button" onclick="window.location.href='createView'">추가</button>
-  		<button class="btn btn-dark delete_btn" type="button">삭제</button>
-  		<button class="btn btn-primary" id="ajaxButton" type="button">Send AJAX Request</button>	
+  		<button class="btn btn-dark" id="deleteButton" type="button">삭제</button>	
 	</div>
 	
 </div>	
@@ -145,7 +144,7 @@
 	
 <script>
 $(document).ready(function() {
-    $("#ajaxButton").click(function() {
+    $("#deleteButton").click(function() {
         let values = [];	// 체크된 값을 저장할 배열
         
         // 체크된 체크박스 값을 가져와서 배열에 추가
@@ -166,7 +165,7 @@ $(document).ready(function() {
             contentType: 'application/json', // 데이터가 JSON 형식임을 지정
             dataType: 'json',
             url: "/dummy/ajaxRequest",
-            data: JSON.stringify(data), // JSON 데이터를 보냄
+            data: JSON.stringify({ employee_id: values[0] }), // JSON 데이터를 보냄
             success: function(response) {
                 // 서버로부터의 성공 응답 처리
                 console.log(response);

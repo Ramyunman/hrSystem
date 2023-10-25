@@ -98,15 +98,16 @@ public class DummyController {
 	// ajax 연습
 	@RequestMapping(value = "/ajaxRequest", method = RequestMethod.POST)
 	@ResponseBody
-	public Map<String, String> ajaxRequest(@RequestBody Employee employee) {
+	public Map<String, String> ajaxRequest(@RequestBody Employee employee) throws Exception {
 	    logger.info("ajaxRequest");
 
 	    int employeeId = employee.getEmployee_id();
-	    
+	    System.out.println(employeeId);
 	    Map<String, String> response = new HashMap<>();
 	    response.put("message", "Hello from Server");
 	    response.put("employee_id", String.valueOf(employeeId));
-	    System.out.println(response);
+	    //service.delete(employee.getEmployee_id());
+	    //System.out.println(response);
 	    return response;
 	}
 
