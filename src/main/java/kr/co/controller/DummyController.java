@@ -99,19 +99,23 @@ public class DummyController {
 	// ajax 연습
 	@RequestMapping(value = "/ajaxRequest", method = RequestMethod.POST)
 	@ResponseBody
-	public List<Employee> ajaxRequest(@RequestBody List<Employee> employees) throws Exception {
+	public List<Employee> ajaxRequest(@RequestBody List<Integer> employeeIds) throws Exception {
 	    logger.info("ajaxRequest");
 
-	    // employees에는 여러 개의 Employee 객체가 포함될 것입니다.
-	    for (Employee employee : employees) {
-	        int employeeId = employee.getEmployee_id();
-	        System.out.println(employeeId);
-	        // 이 부분에서 필요한 작업 수행
+	    List<Employee> employees = new ArrayList<>();
+
+	    // employeeIds에는 클라이언트에서 보낸 여러 개의 employee_id가 포함될 것입니다.
+	    for (Integer employeeId : employeeIds) {
+	        // 여기에서 employeeId를 사용하여 필요한 작업 수행
+	        // 예: Employee 객체를 데이터베이스에서 가져오거나 삭제
+	        Employee employee = service.getEmployeeById(employeeId); // 예시: Employee를 가져오는 메소드
+	        employees.add(employee);
 	    }
 
 	    // 처리한 Employee 객체 목록을 다시 반환
 	    return employees;
 	}
+
 
 
 

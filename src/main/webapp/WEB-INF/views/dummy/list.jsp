@@ -135,7 +135,8 @@
 	
 	<div class="d-grid gap-2 d-md-block">
   		<button class="btn btn-dark create_btn" type="button" onclick="window.location.href='createView'">추가</button>
-  		<button class="btn btn-dark" id="deleteButton" type="button">삭제</button>	
+  		<button class="btn btn-dark delete_btn" type="button">삭제</button>
+  		<button class="btn btn-primary" id="ajaxButton" type="button">ajaxButton</button>		
 	</div>
 	
 </div>	
@@ -144,34 +145,28 @@
 	
 <script>
 $(document).ready(function() {
-    $("#deleteButton").click(function() {
+    $("#ajaxButton").click(function() {
         let values = [];	// 체크된 값을 저장할 배열
-        
+       
         // 체크된 체크박스 값을 가져와서 배열에 추가
         $("input[name='list_checkbox']:checked").each(function() {
             const value = $(this).val();
             values.push(value);
             console.log("employeeId: " + value); 
         });
-             
-        let employeeIds = [];
-        employeeIds.push(values);
-        
+                     
         // JSON 형식으로 데이터를 생성
-        var data = {
-        		//"emloyee_id": values
-        		employeeIds
+        var employIds = {
+        	"employee_id": values
         }
-		
-        
-        
+		        
         // Ajax를 사용하여 서버로 값을 전송
         $.ajax({
             type: "POST",
             contentType: 'application/json', // 데이터가 JSON 형식임을 지정
             dataType: 'json',
             url: "/dummy/ajaxRequest",
-            data: JSON.stringify(employeeIds), // JSON 데이터를 보냄
+            data: JSON.stringify(employIds), // JSON 데이터를 보냄
             success: function(response) {
                 // 서버로부터의 성공 응답 처리
                 console.log(response);
