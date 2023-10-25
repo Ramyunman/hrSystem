@@ -1,6 +1,7 @@
 package kr.co.controller;
 
 import javax.inject.Inject;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -98,18 +99,22 @@ public class DummyController {
 	// ajax 연습
 	@RequestMapping(value = "/ajaxRequest", method = RequestMethod.POST)
 	@ResponseBody
-	public Map<String, String> ajaxRequest(@RequestBody Employee employee) throws Exception {
+	public List<Employee> ajaxRequest(@RequestBody List<Employee> employees) throws Exception {
 	    logger.info("ajaxRequest");
 
-	    int employeeId = employee.getEmployee_id();
-	    System.out.println(employeeId);
-	    Map<String, String> response = new HashMap<>();
-	    response.put("message", "Hello from Server");
-	    response.put("employee_id", String.valueOf(employeeId));
-	    //service.delete(employee.getEmployee_id());
-	    //System.out.println(response);
-	    return response;
+	    // employees에는 여러 개의 Employee 객체가 포함될 것입니다.
+	    for (Employee employee : employees) {
+	        int employeeId = employee.getEmployee_id();
+	        System.out.println(employeeId);
+	        // 이 부분에서 필요한 작업 수행
+	    }
+
+	    // 처리한 Employee 객체 목록을 다시 반환
+	    return employees;
 	}
+
+
+
 
 	
 }

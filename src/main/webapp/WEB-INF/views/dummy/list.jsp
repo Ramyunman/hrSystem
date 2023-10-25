@@ -151,21 +151,27 @@ $(document).ready(function() {
         $("input[name='list_checkbox']:checked").each(function() {
             const value = $(this).val();
             values.push(value);
-            console.log("employeeId: " + value);
+            console.log("employeeId: " + value); 
         });
-
+             
+        let employeeIds = [];
+        employeeIds.push(values);
+        
         // JSON 형식으로 데이터를 생성
         var data = {
-        		"emloyee_id": values
+        		//"emloyee_id": values
+        		employeeIds
         }
-
+		
+        
+        
         // Ajax를 사용하여 서버로 값을 전송
         $.ajax({
             type: "POST",
             contentType: 'application/json', // 데이터가 JSON 형식임을 지정
             dataType: 'json',
             url: "/dummy/ajaxRequest",
-            data: JSON.stringify({ employee_id: values[0] }), // JSON 데이터를 보냄
+            data: JSON.stringify(employeeIds), // JSON 데이터를 보냄
             success: function(response) {
                 // 서버로부터의 성공 응답 처리
                 console.log(response);
