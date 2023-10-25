@@ -89,7 +89,7 @@
   			<tbody>
   				<c:forEach items="${list}" var="list">
     				<tr>
-      					<td><input type="checkbox" name="list_checkbox"></td>
+      					<td><input type="checkbox" name="list_checkbox" value="${list.employee_id}"></td>
       					<td><a href="/dummy/readView?employee_id=${list.employee_id}"><c:out value ="${list.employee_id}"/></a></td>
       					<td><c:out value="${list.name}"/></td>
       					<td><c:out value="${list.reg_no}"/></td>
@@ -136,7 +136,7 @@
 	<div class="d-grid gap-2 d-md-block">
   		<button class="btn btn-dark create_btn" type="button" onclick="window.location.href='createView'">추가</button>
   		<button class="btn btn-dark delete_btn" type="button">삭제</button>
-  		<button id="ajaxButton">Send AJAX Request</button>	
+  		<button class="btn btn-primary" id="ajaxButton" type="button">Send AJAX Request</button>	
 	</div>
 	
 </div>	
@@ -146,37 +146,34 @@
 <script>
 $(document).ready(function() {
     $("#ajaxButton").click(function() {
-        let employeeIds = [];  // 여러 개의 employeeId를 저장할 배열을 선언합니다.
-
-        // 체크된 체크박스 값을 가져옵니다.
-        $("input[name=list_checkbox]:checked").each(function() {
-            // 체크박스의 부모는 <td>입니다.
-            // <td>의 부모는 <tr>이므로 그것을 선택합니다.
-            var tr = $(this).parent().parent();
-            var td = tr.children();
-
-            // 체크박스 옆의 <td>에서 list.employee_id를 가져옵니다.
-            var employeeId = td.find(".list.employee_id").text();
-            employeeIds.push(employeeId);  // 배열에 추가합니다.
-
-
-            // 콘솔에 employee_id 출력
-            console.log("employee_id: " + employeeId);
+        let values = [];	// 체크된 값을 저장할 배열
+        
+        // 체크된 체크박스 값을 가져와서 배열에 추가
+        $("input[name='list_checkbox']:checked").each(function() {
+            const value = $(this).val();
+            values.push(value);
+            console.log("employeeId: " + value);
         });
 
-        // 배열을 JSON 데이터로 변환합니다.
-        var data = JSON.stringify(employeeIds);
+        // JSON 형식으로 데이터를 생성
+        var data = {
+        		"emloyee_id": values
+        }
 
+        // Ajax를 사용하여 서버로 값을 전송
         $.ajax({
-            url: "/dummy/ajaxRequest",
             type: "POST",
-            data: data,
-            contentType: "application/json",
+            contentType: 'application/json', // 데이터가 JSON 형식임을 지정
+            dataType: 'json',
+            url: "/dummy/ajaxRequest",
+            data: JSON.stringify(data), // JSON 데이터를 보냄
             success: function(response) {
-                console.log("서버 응답: " + response);
+                // 서버로부터의 성공 응답 처리
+                console.log(response);
             },
             error: function(xhr, status, error) {
-                console.error("에러: " + error);
+                // 에러 처리
+                console.log("Error: " + error);
             }
         });
     });
