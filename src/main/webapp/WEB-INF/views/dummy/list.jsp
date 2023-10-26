@@ -157,8 +157,8 @@ $(document).ready(function() {
                      
         // JSON 형식으로 데이터를 생성
         var employIds = {
-        	"employee_id": values
-        }
+        					"employeeIds": values
+        				}
 		        
         // Ajax를 사용하여 서버로 값을 전송
         $.ajax({
