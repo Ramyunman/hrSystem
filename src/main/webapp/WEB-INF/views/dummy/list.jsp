@@ -136,7 +136,7 @@
 	<div class="d-grid gap-2 d-md-block">
   		<button class="btn btn-dark create_btn" type="button" onclick="window.location.href='createView'">추가</button>
   		<button class="btn btn-dark delete_btn" type="button">삭제</button>
-  		<button class="btn btn-primary" id="ajaxButton" type="button">ajaxButton</button>		
+  		<button class="btn btn-primary" id="ajaxButton" type="button">진짜삭제</button>		
 	</div>
 	
 </div>	
