@@ -112,7 +112,7 @@ public class DummyController {
 	            // 예: Employee 객체를 데이터베이스에서 가져오거나 삭제
 	            Employee employee = service.read(employeeId); // 예시: Employee를 가져오는 메소드
 	            employees.add(employee);
-	            service.delete(employeeId);
+	            //service.delete(employeeId);
 	        }
 	    }
 
