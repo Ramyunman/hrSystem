@@ -70,7 +70,7 @@
   	
     
 	<form role="form" name="listForm">
-		<table class="table table-striped">
+		<table class="table table-striped" id="employeeList">
   			<thead class="table-dark">
     			<tr>
       				<th scope="col">선택</th>
@@ -86,7 +86,7 @@
   			</thead>
   			<tbody>
   				<c:forEach items="${list}" var="list">
-    				<tr>
+    				<tr id="employee_${list.employee_id}">
       					<td><input type="checkbox" name="list_checkbox" value="${list.employee_id}"></td>
       					<td><a href="/dummy/readView?employee_id=${list.employee_id}"><c:out value ="${list.employee_id}"/></a></td>
       					<td><c:out value="${list.name}"/></td>
@@ -166,8 +166,16 @@ $(document).ready(function() {
             url: "/dummy/ajaxRequest",
             data: JSON.stringify(employIds), // JSON 데이터를 보냄
             success: function(response) {
-                // 서버로부터의 성공 응답 처리
-                console.log(response);
+            	console.log(response);
+                var deletedEmployeeIds = response;
+                
+                deletedEmployeeIds.forEach(function(employeeId) {
+                	// 삭제할 행의 ID를 생성
+                	var rowId = "employee_" + employeeId;
+                	
+                	// 해당 ID를 가진 행을 삭제
+                	$("#" + rowId).remove();
+                });             
             },
             error: function(xhr, status, error) {
                 // 에러 처리
@@ -177,7 +185,6 @@ $(document).ready(function() {
     });
 });
 </script>
-
 </body>
   
 

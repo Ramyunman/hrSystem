@@ -1,6 +1,7 @@
 package kr.co.controller;
 
 import javax.inject.Inject;
+import org.springframework.web.servlet.ModelAndView;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
@@ -99,10 +100,10 @@ public class DummyController {
 	// ajax 연습
 	@RequestMapping(value = "/ajaxRequest", method = RequestMethod.POST)
 	@ResponseBody
-	public List<Employee> ajaxRequest(@RequestBody Map<String, List<Integer>> requestData) throws Exception {
+	public List<Integer> ajaxRequest(@RequestBody Map<String, List<Integer>> requestData, Model model) throws Exception {
 	    logger.info("ajaxRequest");
 
-	    List<Employee> employees = new ArrayList<>();
+	    List<Integer> deletedEmployeeIds = new ArrayList<>();
 
 	    List<Integer> employeeIds = requestData.get("employeeIds");
 
@@ -110,20 +111,14 @@ public class DummyController {
 	        for (int employeeId : employeeIds) {
 	            // 여기에서 employeeId를 사용하여 필요한 작업 수행
 	            // 예: Employee 객체를 데이터베이스에서 가져오거나 삭제
-	            Employee employee = service.read(employeeId); // 예시: Employee를 가져오는 메소드
-	            employees.add(employee);
-	            //service.delete(employeeId);
+	            service.delete(employeeId);
+	            deletedEmployeeIds.add(employeeId);	        	
 	        }
 	    }
-
-	    // 처리한 Employee 객체 목록을 다시 반환
-	    return employees;
+	    
+	    return deletedEmployeeIds;
 	}
-
-
-
-
-
+	
 
 	
 }
