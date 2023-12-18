@@ -91,7 +91,6 @@ public class BoardController {
 	public String delete(Employee employee) throws Exception {
 		logger.info("delete");
 		service.delete(employee.getEmployee_id());
-		
 		return "redirect:/board/list";
 	}
 	

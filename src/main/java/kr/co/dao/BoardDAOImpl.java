@@ -54,8 +54,4 @@ public class BoardDAOImpl implements BoardDAO {
 		sqlSession.delete("boardMapper.delete", employee_id);
 	}
 	
-	
-		
-	
-
 }

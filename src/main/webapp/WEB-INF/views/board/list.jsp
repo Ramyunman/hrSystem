@@ -86,6 +86,7 @@
       				<th scope="col">Email</th>
     			</tr>
   			</thead>
+  			
   			<tbody>
   				<c:forEach items="${list}" var="list">
     				<tr>
