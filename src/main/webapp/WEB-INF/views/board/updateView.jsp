@@ -22,12 +22,12 @@
 
 		$(".cancel_btn").on("click", function() {
 			event.preventDefault();
-			location.href = "/dummy/list";
+			location.href = "/board/list";
 		})
 		
 		// 수정
 		$(".update_btn").on("click", function() {
-			formObj.attr("action", "/dummy/update");
+			formObj.attr("action", "/board/update");
 			formObj.attr("method", "post");
 			formObj.submit();
 		})
@@ -64,13 +64,13 @@
 		<hr>
 		<ul class="nav">
   			<li class="nav-item">
-    			<a class="nav-link active" href="/dummy/list">사원목록</a>
+    			<a class="nav-link active" href="/board/list">사원목록</a>
   			</li>
   		</ul>
   		<hr>
   		
   		<section id="container">
-	  		<form name="updateForm" role="form" method="post" action="/dummy/update">
+	  		<form name="updateForm" role="form" method="post" action="/board/update">
   				<input type="hidden" name="employee_id" value="${update.employee_id}" readonly="readonly">
   				<div class="form-row">
     				<div class="form-group col-md-6">

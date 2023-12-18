@@ -50,7 +50,7 @@
   	<hr>
   	
   	<section id="container">
-  		<form name="createForm" method="post" action="/dummy/create">
+  		<form name="createForm" method="post" action="/board/create">
   			<div class="form-row">
     			<div class="form-group col-md-6">
       				<label for="name">성명</label>

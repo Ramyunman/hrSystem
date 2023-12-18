@@ -17,7 +17,7 @@
 		
 		// 수정
 		$(".update_btn").on("click", function() {
-			formObj.attr("action", "/dummy/updateView");
+			formObj.attr("action", "/board/updateView");
 			formObj.attr("method", "get");
 			formObj.submit();
 		})
@@ -28,7 +28,7 @@
 			var deleteYN = confirm("삭제하시겠습니까?");
 			if(deleteYN == true) {
 				
-				formObj.attr("action", "/dummy/delete");
+				formObj.attr("action", "/board/delete");
 				formObj.attr("method", "post");
 				formObj.submit();
 			}
@@ -46,7 +46,7 @@
 		<hr>
 		<ul class="nav">
   			<li class="nav-item">
-    			<a class="nav-link active" href="/dummy/list">사원목록</a>
+    			<a class="nav-link active" href="/board/list">사원목록</a>
   			</li>
   		</ul>
   		<hr>

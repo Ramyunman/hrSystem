@@ -90,7 +90,7 @@
   				<c:forEach items="${list}" var="list">
     				<tr>
       					<td><input type="checkbox" name="list_checkbox"></td>
-      					<td><a href="/dummy/readView?employee_id=${list.employee_id}"><c:out value ="${list.employee_id}"/></a></td>
+      					<td><a href="/board/readView?employee_id=${list.employee_id}"><c:out value ="${list.employee_id}"/></a></td>
       					<td><c:out value="${list.name}"/></td>
       					<td><c:out value="${list.reg_no}"/></td>
       					<td><c:out value="${list.department.department_name}"/></td>
@@ -168,7 +168,7 @@ $(document).ready(function() {
         var data = JSON.stringify(employeeIds);
 
         $.ajax({
-            url: "/dummy/ajaxRequest",
+            url: "/board/ajaxRequest",
             type: "POST",
             data: data,
             contentType: "application/json",
