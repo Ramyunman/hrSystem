@@ -50,6 +50,7 @@
 		<result property="department_name" column="department_name" />
 	</resultMap>
 		
+	<!-- 게시판 목록 보기 -->
 	<select id="listPage" resultType="kr.co.vo.Employee" parameterType="kr.co.vo.SearchCriteria" resultMap="employeeResultMap">
 		SELECT 		EMPLOYEE_ID,
 					NAME,
@@ -75,6 +76,7 @@
 		ORDER BY employee_id DESC
 	</select>
 	
+	<!-- 목록 총 인원수 세기  -->
 	<select id="listCount" parameterType="kr.co.vo.SearchCriteria" resultType="int">
 		SELECT		COUNT(employee_id)
 		FROM		employees 
@@ -90,6 +92,7 @@
 		</if>
 	</sql>
 		
+	<!-- 직원 정보 보기 -->
 	<select id="read" parameterType="int" resultType="kr.co.vo.Employee">
 		SELECT		EMPLOYEE_ID
 			  		, NAME
@@ -106,6 +109,7 @@
 			WHERE EMPLOYEE_ID = #{EMPLOYEE_ID}
 	</select>
 	
+	<!-- 직원 정보 수정 -->
 	<update id="update" parameterType="kr.co.vo.Employee">
 		UPDATE		employees
 		SET			NAME	=	#{name},
@@ -122,6 +126,7 @@
 		WHERE		EMPLOYEE_ID = #{employee_id} 
 	</update>
 
+	<!-- 직원 정보 삭제 -->
 	<delete id="delete" parameterType="int">
 		DELETE
 		FROM 	employees
